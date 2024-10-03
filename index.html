@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="layout-menu-light">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>%VITE_APP_TITLE%</title>
+</head>
+
+<body>
+  <div id="app">
+    <style>
+      html,
+      body,
+      #app {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .index-loader {
+        height: 4px;
+        width: 130px;
+        --c: no-repeat linear-gradient(#409EFF 0 0);
+        background: var(--c), var(--c), #c6e2ff;
+        background-size: 60% 100%;
+        animation: l16 3s infinite;
+      }
+
+      @keyframes l16 {
+        0% {
+          background-position: -150% 0, -150% 0
+        }
+
+        66% {
+          background-position: 250% 0, -150% 0
+        }
+
+        100% {
+          background-position: 250% 0, 250% 0
+        }
+      }
+    </style>
+    <div class="index-loader"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+* text eol=lf
+
+# 常见图片文件类型
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.bmp binary
+*.ico binary
+*.tiff binary
+*.tif binary
+*.svg binary
+*.webp binary
