@@ -52,6 +52,38 @@
 > 2.remix是利用xlink引入一个完整的图标svg文件，然后通过#name的方式显示对应的icon；
 > 本质上都是引入了大量内容，主要是为了省事，如果你对打包后的体积有要求，可以考虑自己单个import引入，比如svg可以单个下载完后，用`vite-plugin-svg-icons`这个插件来调用。具体可以自己研究了。
 
+### icon的hooks
+
+element的组件常常会有一些地方可以直接将vue组件作为props的形式传入，比如表单的图标：
+
+```html
+<template>
+  <el-input v-model="input3" :suffix-icon="Search" />
+</template>
+
+<script lang="ts" setup>
+import { Search } from '@element-plus/icons-vue';
+</script>
+```
+
+这种方式如果我们想使用remix的图标，直接使用Icon组件是不行的，因为Icon组件需要传入一个name参数，才可以正常使用，这种场景显然不合适。
+
+简单的做法就是基于Icon组件封装一个新的vue组件，这样做显然非常麻烦，为此封装了一个`useIcon`的hooks，可以直接传入remix的icon name，然后返回一个渲染好的Icon组件。
+
+```html
+<template>
+  <el-input v-model="input3" :suffix-icon="Search" />
+</template>
+
+<script lang="ts" setup>
+import { useIcon } from '@/hooks/useIcon';
+
+const Search = useIcon({name: "ri-search-line"});
+</script>
+```
+
+这样就能直接使用remix的图标了，当然你传`el-icon-xxx`也是可以的，只不过会显示element的图标。
+
 ### 环境变量
 
 1. `VITE_APP_TITLE`用于控制页面的标题和部分需要使用标题的地方，比如侧边栏logo旁的文字。
