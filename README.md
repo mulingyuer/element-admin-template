@@ -52,6 +52,14 @@
 > 2.remix是利用xlink引入一个完整的图标svg文件，然后通过#name的方式显示对应的icon；
 > 本质上都是引入了大量内容，主要是为了省事，如果你对打包后的体积有要求，可以考虑自己单个import引入，比如svg可以单个下载完后，用`vite-plugin-svg-icons`这个插件来调用。具体可以自己研究了。
 
+**示例：**
+
+```html
+<template>
+  <Icon name="ri-search-line" />
+</template>
+```
+
 ### icon的hooks
 
 element的组件常常会有一些地方可以直接将vue组件作为props的形式传入，比如表单的图标：
