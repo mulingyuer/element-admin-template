@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 10:23:21
- * @LastEditTime: 2024-09-30 17:14:46
+ * @LastEditTime: 2024-10-11 17:09:39
  * @LastEditors: mulingyuer
  * @Description: 导航tab
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\NavTab\index.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -168,6 +168,7 @@ watch(
 	display: flex;
 	align-items: center;
 	transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: 3;
 	&.is-mobile-collapse,
 	&.is-mobile {
 		left: $aside-mobile-width;

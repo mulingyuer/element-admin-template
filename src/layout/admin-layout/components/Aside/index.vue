@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-27 16:00:24
- * @LastEditTime: 2024-09-29 16:59:47
+ * @LastEditTime: 2024-10-11 17:08:49
  * @LastEditors: mulingyuer
  * @Description: 侧边栏
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Aside\index.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Aside\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -48,7 +48,7 @@ function onCloseAppMask() {
 	transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	display: flex;
 	flex-direction: column;
-	z-index: 2;
+	z-index: 5;
 	width: $aside-width;
 	&.is-collapse {
 		width: $aside-mini-width;
@@ -67,6 +67,6 @@ function onCloseAppMask() {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.3);
-	z-index: 1;
+	z-index: 4;
 }
 </style>

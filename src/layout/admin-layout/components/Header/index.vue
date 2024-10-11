@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 16:06:23
- * @LastEditTime: 2024-09-30 10:15:51
+ * @LastEditTime: 2024-10-11 17:09:11
  * @LastEditors: mulingyuer
  * @Description: 顶栏
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Header\index.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Header\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -50,6 +50,7 @@ const headerClass = computed(() => {
 	display: flex;
 	justify-content: space-between;
 	transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: 3;
 	&.is-mobile-collapse,
 	&.is-mobile {
 		left: $aside-mobile-width;
