@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:26:54
- * @LastEditTime: 2024-09-29 17:32:36
+ * @LastEditTime: 2024-10-15 11:53:05
  * @LastEditors: mulingyuer
  * @Description: 路由守卫
- * @FilePath: \spirit-app-microservice-admin\src\router\guard\index.ts
+ * @FilePath: \element-admin-template\src\router\guard\index.ts
  * 怎么可能会有bug！！！
  */
 import type { Router } from "vue-router";
@@ -14,7 +14,7 @@ import { useAppStore } from "@/stores";
 import { initRoutes } from "../helpers";
 import { modulesRoutes } from "../route-modules";
 
-export function createRouterGuard(router: Router) {
+export async function createRouterGuard(router: Router) {
 	const appStore = useAppStore();
 
 	/** 路由守卫 */

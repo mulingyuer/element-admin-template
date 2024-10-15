@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 11:01:54
- * @LastEditTime: 2024-09-30 09:00:00
+ * @LastEditTime: 2024-10-15 11:54:33
  * @LastEditors: mulingyuer
  * @Description: icon
- * @FilePath: \spirit-app-microservice-admin\src\components\Icon\Icon.vue
+ * @FilePath: \element-admin-template\src\components\Icon.vue
  * 怎么可能会有bug！！！
 -->
 <script lang="ts">
