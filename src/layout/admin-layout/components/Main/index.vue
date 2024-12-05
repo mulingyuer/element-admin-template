@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 17:00:46
- * @LastEditTime: 2024-09-30 17:08:27
+ * @LastEditTime: 2024-12-05 08:50:39
  * @LastEditors: mulingyuer
  * @Description: main
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Main\index.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Main\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -55,5 +55,6 @@ const mainClass = computed(() => {
 .admin-main-content {
 	padding: 12px;
 	height: 100%;
+	overflow: hidden;
 }
 </style>
