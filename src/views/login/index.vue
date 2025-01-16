@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-26 12:15:39
- * @LastEditTime: 2024-09-30 17:42:11
+ * @LastEditTime: 2025-01-16 11:39:13
  * @LastEditors: mulingyuer
  * @Description: 登录页面
- * @FilePath: \spirit-app-microservice-admin\src\views\login\index.vue
+ * @FilePath: \element-admin-template\src\views\login\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -13,47 +13,49 @@
 			<div class="login-logo-wrapper">
 				<img class="login-logo" src="/favicon.ico" :alt="logoTitle" />
 			</div>
-			<el-form
-				class="login-form"
-				ref="ruleFormRef"
-				:model="form"
-				:rules="rules"
-				size="large"
-				status-icon
-			>
-				<h2 class="login-form-title">欢迎回来</h2>
-				<p class="login-form-desc">请输入账号密码登录</p>
-				<el-form-item prop="account">
-					<el-input v-model="form.account" placeholder="请输入账号">
-						<template #prefix>
-							<Icon name="ri-user-fill" />
-						</template>
-					</el-input>
-				</el-form-item>
-				<el-form-item prop="password">
-					<el-input
-						v-model="form.password"
-						type="password"
-						autocomplete="off"
-						show-password
-						placeholder="请输入密码"
-					>
-						<template #prefix>
-							<Icon name="ri-lock-fill" />
-						</template>
-					</el-input>
-				</el-form-item>
-				<el-form-item class="login-form-submit-item">
-					<el-button
-						class="login-form-btn"
-						type="primary"
-						:loading="submitLoading"
-						@click="onLogin"
-					>
-						登录
-					</el-button>
-				</el-form-item>
-			</el-form>
+			<el-card class="login-form-card">
+				<el-form
+					class="login-form"
+					ref="ruleFormRef"
+					:model="form"
+					:rules="rules"
+					size="large"
+					status-icon
+				>
+					<h2 class="login-form-title">欢迎回来</h2>
+					<p class="login-form-desc">请输入账号密码登录</p>
+					<el-form-item prop="account">
+						<el-input v-model="form.account" placeholder="请输入账号">
+							<template #prefix>
+								<Icon name="ri-user-fill" />
+							</template>
+						</el-input>
+					</el-form-item>
+					<el-form-item prop="password">
+						<el-input
+							v-model="form.password"
+							type="password"
+							autocomplete="off"
+							show-password
+							placeholder="请输入密码"
+						>
+							<template #prefix>
+								<Icon name="ri-lock-fill" />
+							</template>
+						</el-input>
+					</el-form-item>
+					<el-form-item class="login-form-submit-item">
+						<el-button
+							class="login-form-btn"
+							type="primary"
+							:loading="submitLoading"
+							@click="onLogin"
+						>
+							登录
+						</el-button>
+					</el-form-item>
+				</el-form>
+			</el-card>
 		</div>
 	</div>
 </template>
@@ -111,9 +113,10 @@ async function onLogin() {
 <style lang="scss" scoped>
 .login {
 	flex-grow: 1;
-	background-color: #f2f6ff;
+	background-color: var(--eat-login-bg);
 	padding: 20px;
 	display: flex;
+	transition: var(--el-transition-duration);
 }
 .login-content {
 	width: 580px;
@@ -127,13 +130,16 @@ async function onLogin() {
 	width: 40px;
 	height: 40px;
 }
-.login-form {
-	background-color: #fff;
+.login-form-card {
 	border-radius: 10px;
-	padding: 54px 48px;
-	box-shadow: 0 5px 5px rgba(52, 83, 127, 0.1);
+	border: none;
+	:deep(.el-card__body) {
+		padding: 54px 48px;
+	}
+}
+.login-form {
 	:deep(.el-input__prefix) {
-		color: #409eff;
+		color: var(--el-color-primary);
 	}
 }
 .login-form-submit-item {
@@ -147,13 +153,13 @@ async function onLogin() {
 	margin-bottom: 12px;
 	font-size: 28px;
 	font-weight: normal;
-	color: #409eff;
+	color: var(--el-color-primary);
 	letter-spacing: 2px;
 }
 .login-form-desc {
 	margin-bottom: 50px;
 	font-size: 16px;
-	color: #79bbff;
+	color: var(--el-color-primary-light-3);
 	letter-spacing: 1px;
 }
 .login-form-btn {

@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 11:22:25
- * @LastEditTime: 2024-09-29 17:36:11
+ * @LastEditTime: 2025-01-16 11:14:31
  * @LastEditors: mulingyuer
  * @Description: 应用配置
- * @FilePath: \spirit-app-microservice-admin\src\stores\modules\app\index.ts
+ * @FilePath: \element-admin-template\src\stores\modules\app\index.ts
  * 怎么可能会有bug！！！
  */
 import { defineStore } from "pinia";
@@ -79,6 +79,13 @@ export const useAppStore = defineStore(
 			routeAnimate.value = animate;
 		}
 
+		/** 是否暗色模式，useDark自己有持久化 */
+		const isDark = useDark({
+			storageKey: `${import.meta.env.VITE_APP_LOCAL_KEY_PREFIX}color-scheme`,
+			valueDark: "dark",
+			valueLight: "light"
+		});
+
 		return {
 			language,
 			setLanguage,
@@ -99,7 +106,8 @@ export const useAppStore = defineStore(
 			reloadFlag,
 			setReloadFlag,
 			routeAnimate,
-			setRouteAnimate
+			setRouteAnimate,
+			isDark
 		};
 	},
 	{

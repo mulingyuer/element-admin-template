@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 11:41:22
- * @LastEditTime: 2024-09-30 17:15:09
+ * @LastEditTime: 2025-01-16 11:16:53
  * @LastEditors: mulingyuer
  * @Description: nav tab 工具栏
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\NavTab\NavTabTools.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\NavTabTools.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -85,7 +85,7 @@ function onVisibleChange(show: boolean) {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-left: 1px solid rgba(231, 229, 228);
+	border-left: 1px solid var(--el-border-color-light);
 	color: var(--el-text-color-regular);
 	cursor: pointer;
 	&:hover {

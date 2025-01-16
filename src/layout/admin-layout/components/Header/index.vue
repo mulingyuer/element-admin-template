@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 16:06:23
- * @LastEditTime: 2024-10-11 17:09:11
+ * @LastEditTime: 2025-01-16 11:14:59
  * @LastEditors: mulingyuer
  * @Description: 顶栏
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\Header\index.vue
@@ -14,6 +14,7 @@
 			<Breadcrumb />
 		</div>
 		<div class="admin-header-right">
+			<LightDarkToggle />
 			<FullScreen />
 			<User />
 		</div>
@@ -26,6 +27,7 @@ import MenuCollapse from "./MenuCollapse.vue";
 import Breadcrumb from "./Breadcrumb.vue";
 import FullScreen from "./FullScreen.vue";
 import User from "./User.vue";
+import LightDarkToggle from "./LightDarkToggle.vue";
 
 const appStore = useAppStore();
 const headerClass = computed(() => {

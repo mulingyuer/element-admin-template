@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-27 16:00:24
- * @LastEditTime: 2024-10-11 17:08:49
+ * @LastEditTime: 2025-01-16 11:41:23
  * @LastEditors: mulingyuer
  * @Description: 侧边栏
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\Aside\index.vue
@@ -44,7 +44,7 @@ function onCloseAppMask() {
 	bottom: 0;
 	overflow: hidden;
 	background-color: var(--el-bg-color);
-	box-shadow: 0 0 1px rgba(136, 136, 136);
+	box-shadow: 0 0 1px var(--eat-layout-border-color);
 	transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	display: flex;
 	flex-direction: column;
@@ -66,7 +66,7 @@ function onCloseAppMask() {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: var(--el-overlay-color-lighter);
 	z-index: 4;
 }
 </style>

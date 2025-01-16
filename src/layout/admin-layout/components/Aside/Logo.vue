@@ -31,7 +31,7 @@ const logoTitle = import.meta.env.VITE_APP_TITLE;
 	height: 56px;
 	white-space: nowrap;
 	text-decoration: none;
-	color: #409eff;
+	color: var(--el-color-primary);
 	&:active {
 		opacity: 0.7;
 	}

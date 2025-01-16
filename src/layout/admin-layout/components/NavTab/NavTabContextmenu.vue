@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 16:20:24
- * @LastEditTime: 2024-09-30 17:00:33
+ * @LastEditTime: 2025-01-16 11:45:55
  * @LastEditors: mulingyuer
  * @Description: nav tab 右键菜单
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\NavTab\NavTabContextmenu.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\NavTabContextmenu.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -58,7 +58,7 @@ function onclick(item: NavTabToolsItem) {
 	padding: 5px;
 	background-color: var(--el-bg-color-overlay);
 	border-radius: 4px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	box-shadow: var(--el-box-shadow-light);
 	z-index: 2;
 	list-style: none;
 	font-size: 13px;
