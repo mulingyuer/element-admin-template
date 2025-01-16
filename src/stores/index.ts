@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 11:43:53
- * @LastEditTime: 2024-09-26 11:41:38
+ * @LastEditTime: 2025-01-16 11:55:33
  * @LastEditors: mulingyuer
  * @Description: 数据仓库
- * @FilePath: \spirit-app-microservice-admin\src\stores\index.ts
+ * @FilePath: \element-admin-template\src\stores\index.ts
  * 怎么可能会有bug！！！
  */
 import type { App } from "vue";
@@ -14,7 +14,7 @@ import { createPersistedState } from "pinia-plugin-persistedstate";
 export const store = createPinia();
 store.use(
 	createPersistedState({
-		key: (id) => `__spirit_app-microservice-admin__${id}`
+		key: (id) => `${import.meta.env.VITE_APP_LOCAL_KEY_PREFIX}${id}`
 	})
 );
 

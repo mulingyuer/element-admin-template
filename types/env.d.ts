@@ -7,6 +7,10 @@ interface ImportMetaEnv {
 	VITE_APP_TITLE: string;
 	/** baseURL */
 	VITE_APP_BASE_URL: string;
+	/** 本地持久化key前缀 */
+	VITE_APP_LOCAL_KEY_PREFIX: string;
+	/** api请求地址 */
+	VITE_APP_API_BASE_URL: string;
 }
 
 interface ImportMeta {
