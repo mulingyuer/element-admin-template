@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-26 12:16:02
- * @LastEditTime: 2024-09-26 12:16:03
+ * @LastEditTime: 2025-01-16 17:56:59
  * @LastEditors: mulingyuer
  * @Description: 首页
- * @FilePath: \spirit-app-microservice-admin\src\views\home\index.vue
+ * @FilePath: \element-admin-template\src\views\dashboard\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>

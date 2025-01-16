@@ -1,28 +1,40 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 16:18:26
- * @LastEditTime: 2024-09-25 16:52:56
+ * @LastEditTime: 2025-01-16 17:55:25
  * @LastEditors: mulingyuer
  * @Description: 请求核心
- * @FilePath: \spirit-app-microservice-admin\src\request\core.ts
+ * @FilePath: \element-admin-template\src\request\core.ts
  * 怎么可能会有bug！！！
  */
-import axios, { AxiosError } from "axios";
-import axiosRetry from "axios-retry";
-import type { RequestConfig } from "./types";
 import { useUserStore } from "@/stores";
+import axios from "axios";
+import axiosRetry, { isNetworkOrIdempotentRequestError } from "axios-retry";
+import { showMaxRetryErrorMessage, showRequestErrorMessage } from "./helper";
 
-const instance = axios.create();
+const instance = axios.create({
+	baseURL: import.meta.env.VITE_APP_API_BASE_URL,
+	enableRetry: true,
+	showErrorMessage: true,
+	// showCancelErrorMessage: true, // 这里配置无效，索性注释了
+	timeout: 15000 // ms
+});
 let userStore: ReturnType<typeof useUserStore>;
 
 // 失败重试
 axiosRetry(instance, {
 	retries: 3,
-	retryCondition(error: AxiosError) {
-		const config: RequestConfig | undefined = error?.config;
+	retryCondition(error) {
+		const config = error?.config;
 		if (!config) return false;
-		if (config.enableRetry) return true;
+		if (config.enableRetry && isNetworkOrIdempotentRequestError(error)) {
+			return true;
+		}
 		return false;
+	},
+	onMaxRetryTimesExceeded: (error) => {
+		// 显示错误消息
+		showMaxRetryErrorMessage(error);
 	}
 });
 
@@ -45,33 +57,11 @@ instance.interceptors.response.use(
 		return response.data;
 	},
 	(error) => {
-		let message = "未知错误";
+		// 显示错误消息
+		showRequestErrorMessage(error);
 
-		if (axios.isCancel(error)) {
-			// 请求被取消
-			message = error.message ?? "请求被取消";
-		} else if (error instanceof AxiosError) {
-			// AxiosError
-			message = error.response?.data?.message ?? error.message;
-		} else if (error instanceof Error) {
-			// Error
-			message = error.message;
-		}
-
-		// 消息提示
-		ElNotification({
-			type: "error",
-			title: "请求失败",
-			message
-		});
-
-		return Promise.reject(new Error(message));
+		return Promise.reject(error as Error);
 	}
 );
 
-/** 设置请求的baseUrl */
-function setBaseUrl(baseUrl: string) {
-	instance.defaults.baseURL = baseUrl;
-}
-
-export { instance, setBaseUrl };
+export { instance };
