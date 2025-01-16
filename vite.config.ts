@@ -6,6 +6,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import { analyzer } from "vite-bundle-analyzer";
 
 /** esbuild打包配置 */
 function getEsbuildConfig(mode: string): ESBuildOptions | undefined {
@@ -29,16 +30,29 @@ export default defineConfig(({ mode }) => {
 			vueDevTools(),
 			AutoImport({
 				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
-				resolvers: [ElementPlusResolver()],
+				resolvers: [
+					ElementPlusResolver({
+						importStyle: "sass"
+					})
+				],
 				dts: "types/auto-imports.d.ts",
 				eslintrc: {
-					enabled: true
+					enabled: true,
+					filepath: "./.eslintrc-auto-import.cjs",
+					globalsPropValue: true
 				}
 			}),
 			Components({
-				resolvers: [ElementPlusResolver()],
+				extensions: ["vue", "md"],
+				include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+				resolvers: [
+					ElementPlusResolver({
+						importStyle: "sass"
+					})
+				],
 				dts: "types/components.d.ts"
-			})
+			}),
+			mode === "analyze" ? analyzer() : undefined
 		],
 		resolve: {
 			alias: {
@@ -51,9 +65,7 @@ export default defineConfig(({ mode }) => {
 					additionalData: `
           @use '@/styles/variables' as *;
           @use '@/styles/mixins' as *;
-          `,
-					// TODO: 关闭element-plus中scss语法过旧警告
-					silenceDeprecations: ["legacy-js-api"]
+          `
 				}
 			}
 		},
@@ -70,8 +82,8 @@ export default defineConfig(({ mode }) => {
 			}
 		},
 		server: {
-			host: true,
-			port: 5173
+			host: true
+			// port: 5173
 		}
 	};
 });

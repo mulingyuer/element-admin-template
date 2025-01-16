@@ -1,4 +1,4 @@
 // 统一样式入口
-@import "./element-plus.scss";
-@import "./transition.scss";
-@import "./reset.scss";
+@forward "./element-plus.scss";
+@forward "./transition.scss";
+@forward "./reset.scss";
