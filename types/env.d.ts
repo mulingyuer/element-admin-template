@@ -11,6 +11,8 @@ interface ImportMetaEnv {
 	VITE_APP_LOCAL_KEY_PREFIX: string;
 	/** api请求地址 */
 	VITE_APP_API_BASE_URL: string;
+	/**  Github 预览用 */
+	VITE_APP_GITHUB_PREVIEW: string;
 }
 
 interface ImportMeta {
