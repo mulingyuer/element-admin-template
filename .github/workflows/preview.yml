@@ -1,0 +1,57 @@
+name: 打包并输出到preview分支进行预览
+
+# 检测只有主分支的push操作会触发该工作流
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # 允许手动触发该工作流
+
+jobs:
+  build:
+    name: 打包
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 克隆仓库
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: 指定Node.js版本
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 安装pnpm
+        run: npm install pnpm -g
+
+      - name: 安装依赖
+        run: pnpm install
+
+      - name: 打包
+        run: pnpm build
+
+      - name: 克隆preview分支
+        run: git clone --branch=preview --single-branch . ../preview
+
+      - name: 清理preview分支
+        run: |
+          cd ../preview
+          git rm -rf .
+
+      - name: 移动打包结果
+        run: |
+          cp -r dist/* ../preview
+
+      - name: 提交更改
+        run: |
+          cd ../preview
+          git add .
+          current_time=$(date +"%Y-%m-%d %H:%M:%S")
+          git commit -m "打包预览 - $current_time"
+
+      - name: 推送到preview分支
+        run: |
+          cd ../preview
+          git push origin preview -f
