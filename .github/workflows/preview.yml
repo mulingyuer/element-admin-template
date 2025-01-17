@@ -18,22 +18,7 @@ jobs:
       - name: 克隆仓库
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取所有分支的信息和历史
-
-      - name: 切换到main分支
-        run: git checkout main
-
-      - name: 克隆整个仓库
-        run: |
-          git clone . ../repo-clone
-          cd ../repo-clone
-          git fetch origin  # 获取远程所有分支信息
-          git checkout preview
-
-      - name: 清理preview分支
-        run: |
-          cd ../repo-clone
-          git rm -rf .
+          ref: main # 指定主分支
 
       - name: 指定Node.js版本
         uses: actions/setup-node@v4
@@ -49,20 +34,9 @@ jobs:
       - name: 打包
         run: pnpm build
 
-      - name: 移动打包结果
-        run: |
-          cp -r dist/* ../repo-clone
-
-      - name: 提交更改
-        run: |
-          cd ../repo-clone
-          git config user.email "action@github.com"  # GitHub Actions 的邮箱
-          git config user.name "GitHub Actions"        # GitHub Actions 的用户名
-          git add .
-          current_time=$(date +"%Y-%m-%d %H:%M:%S")
-          git commit -m "打包预览 -$current_time"
-
-      - name: 推送到preview分支
-        run: |
-          cd ../repo-clone
-          git push origin preview -f  # 修改为正确的远程引用
+      - name: 部署到preview分支
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./dist
+          publish_branch: preview
+          full_commit_message: ${{ github.event.head_commit.message }}
