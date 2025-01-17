@@ -11,6 +11,8 @@ jobs:
   build:
     name: 打包
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # 确保有写权限
 
     steps:
       - name: 克隆仓库
