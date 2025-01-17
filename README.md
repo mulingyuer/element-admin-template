@@ -1,6 +1,6 @@
 # element-admin-template
 
-基于element-plus、vue3、pinia的后台管理模版
+基于element-plus、vue3、pinia的后台管理模版，目标是一个不添加任何业务逻辑的后台模板，支持快速上手和二次开发。
 
 ## 起因
 
@@ -9,6 +9,10 @@
 于是找了一个ui还不错的开源模板，然后自己研究并手搓了这个后台。
 
 感谢 [Element-Admin](https://github.com/KYX1234/Element-Admin) 这个项目。
+
+## 在线预览
+
+特意搞了一个在线demo，以后项目主分支更新，demo都会自动构建了，访问地址：[在线预览](https://mulingyuer.github.io/element-admin-template/)
 
 ## 效果图
 
@@ -56,7 +60,7 @@
 
 ```html
 <template>
-  <Icon name="ri-search-line" />
+	<Icon name="ri-search-line" />
 </template>
 ```
 
@@ -66,11 +70,11 @@ element的组件常常会有一些地方可以直接将vue组件作为props的�
 
 ```html
 <template>
-  <el-input v-model="input3" :suffix-icon="Search" />
+	<el-input v-model="input3" :suffix-icon="Search" />
 </template>
 
 <script lang="ts" setup>
-import { Search } from '@element-plus/icons-vue';
+	import { Search } from "@element-plus/icons-vue";
 </script>
 ```
 
@@ -80,13 +84,13 @@ import { Search } from '@element-plus/icons-vue';
 
 ```html
 <template>
-  <el-input v-model="input3" :suffix-icon="Search" />
+	<el-input v-model="input3" :suffix-icon="Search" />
 </template>
 
 <script lang="ts" setup>
-import { useIcon } from '@/hooks/useIcon';
+	import { useIcon } from "@/hooks/useIcon";
 
-const Search = useIcon({name: "ri-search-line"});
+	const Search = useIcon({ name: "ri-search-line" });
 </script>
 ```
 
