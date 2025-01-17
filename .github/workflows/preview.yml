@@ -64,4 +64,4 @@ jobs:
       - name: 推送到preview分支
         run: |
           cd ../repo-clone
-          git push origin preview -f
+          git push preview -f
