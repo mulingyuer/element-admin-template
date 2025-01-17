@@ -16,7 +16,10 @@ jobs:
       - name: 克隆仓库
         uses: actions/checkout@v4
         with:
-          ref: main
+          fetch-depth: 0 # 获取所有分支的信息和历史
+
+      - name: 切换到main分支
+        run: git checkout main
 
       - name: 指定Node.js版本
         uses: actions/setup-node@v4

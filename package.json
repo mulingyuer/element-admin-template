@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "run-p type-check \"build-only {@}\" --",
+		"github-preview": "run-p type-check \"build-only {@}\" -- --mode github-preview",
 		"preview": "vite preview",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --build --force",
