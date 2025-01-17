@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: 打包
-        run: pnpm build
+        run: pnpm build --mode github-preview
 
       - name: 部署到preview分支
         uses: peaceiris/actions-gh-pages@v4
