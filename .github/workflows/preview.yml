@@ -36,15 +36,7 @@ jobs:
         run: pnpm build
 
       - name: 克隆preview分支
-        run: |
-          if git show-ref --verify --quiet refs/remotes/origin/preview; then
-            git clone --branch=preview --single-branch . ../preview
-          else
-            git clone . ../preview
-            cd ../preview
-            git checkout --orphan preview
-            git rm -rf .
-          fi
+        run: git clone --branch=preview --single-branch . ../preview
 
       - name: 清理preview分支
         run: |
