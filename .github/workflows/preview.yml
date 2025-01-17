@@ -35,26 +35,29 @@ jobs:
       - name: 打包
         run: pnpm build
 
-      - name: 克隆preview分支
-        run: git clone --branch=preview --single-branch . ../preview
+      - name: 克隆整个仓库
+        run: |
+          git clone . ../repo-clone
+          cd ../repo-clone
+          git checkout -b preview origin/preview || git checkout -b preview
 
       - name: 清理preview分支
         run: |
-          cd ../preview
+          cd ../repo-clone
           git rm -rf .
 
       - name: 移动打包结果
         run: |
-          cp -r dist/* ../preview
+          cp -r dist/* ../repo-clone
 
       - name: 提交更改
         run: |
-          cd ../preview
+          cd ../repo-clone
           git add .
           current_time=$(date +"%Y-%m-%d %H:%M:%S")
-          git commit -m "打包预览 - $current_time"
+          git commit -m "打包预览 -$current_time"
 
       - name: 推送到preview分支
         run: |
-          cd ../preview
+          cd ../repo-clone
           git push origin preview -f
