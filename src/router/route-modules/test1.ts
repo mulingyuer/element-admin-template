@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-29 09:13:25
- * @LastEditTime: 2024-09-30 17:15:32
+ * @LastEditTime: 2025-01-17 10:06:59
  * @LastEditors: mulingyuer
  * @Description:
- * @FilePath: \spirit-app-microservice-admin\src\router\route-modules\test1.ts
+ * @FilePath: \element-admin-template\src\router\route-modules\test1.ts
  * 怎么可能会有bug！！！
  */
 import type { RouteRecordRaw } from "vue-router";
@@ -17,6 +17,6 @@ export default {
 	meta: {
 		title: "测试1",
 		icon: "ri-arrow-up-circle-line",
-		sort: 2
+		sort: 20
 	}
 } as RouteRecordRaw;

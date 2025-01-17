@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 17:54:10
- * @LastEditTime: 2024-09-29 09:09:31
+ * @LastEditTime: 2025-01-17 09:48:53
  * @LastEditors: mulingyuer
  * @Description: 路由辅助函数
- * @FilePath: \spirit-app-microservice-admin\src\router\helpers\index.ts
+ * @FilePath: \element-admin-template\src\router\helpers\helpers.ts
  * 怎么可能会有bug！！！
  */
 import type { Router, RouteRecordRaw } from "vue-router";
