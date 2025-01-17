@@ -1,1 +1,0 @@
-import{_ as e}from"./index-DaU73U1n.js";import{t as o,v as t}from"./vendor-Co_gZcGA.js";import"./element-plus-B3RbvB3i.js";const c={},r={class:"home"};function s(n,_){return o(),t("div",r,"首页")}const f=e(c,[["render",s]]);export{f as default};
