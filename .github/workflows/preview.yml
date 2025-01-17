@@ -64,4 +64,4 @@ jobs:
       - name: 推送到preview分支
         run: |
           cd ../repo-clone
-          git push preview -f
+          git push origin preview -f  # 修改为正确的远程引用
