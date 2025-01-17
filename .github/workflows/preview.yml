@@ -21,6 +21,17 @@ jobs:
       - name: 切换到main分支
         run: git checkout main
 
+      - name: 克隆整个仓库
+        run: |
+          git clone . ../repo-clone
+          cd ../repo-clone
+          git checkout -b preview origin/preview || git checkout -b preview
+
+      - name: 清理preview分支
+        run: |
+          cd ../repo-clone
+          git rm -rf .
+
       - name: 指定Node.js版本
         uses: actions/setup-node@v4
         with:
@@ -35,17 +46,6 @@ jobs:
       - name: 打包
         run: pnpm build
 
-      - name: 克隆整个仓库
-        run: |
-          git clone . ../repo-clone
-          cd ../repo-clone
-          git checkout -b preview origin/preview || git checkout -b preview
-
-      - name: 清理preview分支
-        run: |
-          cd ../repo-clone
-          git rm -rf .
-
       - name: 移动打包结果
         run: |
           cp -r dist/* ../repo-clone
@@ -53,6 +53,8 @@ jobs:
       - name: 提交更改
         run: |
           cd ../repo-clone
+          git config user.email "action@github.com"  # GitHub Actions 的邮箱
+          git config user.name "GitHub Actions"        # GitHub Actions 的用户名
           git add .
           current_time=$(date +"%Y-%m-%d %H:%M:%S")
           git commit -m "打包预览 -$current_time"
