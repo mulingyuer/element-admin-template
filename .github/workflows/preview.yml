@@ -27,7 +27,8 @@ jobs:
         run: |
           git clone . ../repo-clone
           cd ../repo-clone
-          git checkout -b preview origin/preview || git checkout -b preview
+          git fetch origin  # 获取远程所有分支信息
+          git checkout preview
 
       - name: 清理preview分支
         run: |
