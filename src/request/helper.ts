@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-01-16 15:48:18
- * @LastEditTime: 2025-01-16 17:44:46
+ * @LastEditTime: 2025-01-21 09:12:20
  * @LastEditors: mulingyuer
  * @Description: 请求辅助函数
  * @FilePath: \element-admin-template\src\request\helper.ts
@@ -37,7 +37,6 @@ export function showErrorMessage(message: string) {
 
 /** 根据axios的config判断是否显示错误消息 */
 function shouldShowErrorMessage(error: any) {
-	console.log("🚀 ~ shouldShowErrorMessage ~ error:", error);
 	if (!error.config) return true;
 	const config = (error as AxiosError)?.config;
 	const showErrorMessage = config?.showErrorMessage ?? true;
