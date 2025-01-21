@@ -7,6 +7,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { analyzer } from "vite-bundle-analyzer";
+import { ViteCustomIconsPlugin } from "./vite-plugins/vite-custom-icons";
 
 /** esbuild打包配置 */
 function getEsbuildConfig(mode: string): ESBuildOptions | undefined {
@@ -28,6 +29,12 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			vue(),
 			vueDevTools(),
+			ViteCustomIconsPlugin({
+				include: ["/assets/icons/custom/"]
+			}),
+			// svgLoader({
+			// 	defaultImport: "url"
+			// }),
 			AutoImport({
 				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
 				resolvers: [
@@ -77,6 +84,13 @@ export default defineConfig(({ mode }) => {
 			target: ["es2015"],
 			rollupOptions: {
 				output: {
+					// assetFileNames: (assetInfo) => {
+					// 	// 检查输出的 asset 类型
+					// 	if (assetInfo.name === "assets/custom.symbol.svg") {
+					// 		return "assets/[name].[hash][extname]"; // 通过 Rollup 设置哈希
+					// 	}
+					// 	return "assets/[name][extname]";
+					// },
 					manualChunks: {
 						vendor: ["vue", "vue-router", "pinia", "@vueuse/core"],
 						"element-plus": ["element-plus"]

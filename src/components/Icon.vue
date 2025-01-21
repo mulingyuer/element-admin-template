@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 11:01:54
- * @LastEditTime: 2024-10-15 11:54:33
+ * @LastEditTime: 2025-01-21 16:53:20
  * @LastEditors: mulingyuer
  * @Description: icon
  * @FilePath: \element-admin-template\src\components\Icon.vue
@@ -9,7 +9,8 @@
 -->
 <script lang="ts">
 import { ElIcon } from "element-plus";
-import iconPath from "@/assets/icons/remixicon.symbol.svg";
+import iconPath from "@/assets/icons/remixicon.symbol.svg?url";
+import { toCamelCase } from "@/utils/tools";
 
 export default defineComponent({
 	name: "Icon",
@@ -47,6 +48,14 @@ export default defineComponent({
 						{ class: "remix", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 1024 1024" },
 						[h("use", { "xlink:href": `${iconPath}#${props.name}` })]
 					)
+				);
+		}
+
+		// 自定义svg
+		if (props.name.startsWith("custom-")) {
+			return () =>
+				h(ElIcon, { size: props.size || "16px", color: props.color }, () =>
+					h(resolveComponent(toCamelCase(props.name)))
 				);
 		}
 	}
