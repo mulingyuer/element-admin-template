@@ -64,6 +64,18 @@
 </template>
 ```
 
+最近尝试加入了自定义svg图标，使用自定义svg图标，你需要将svg文件放置 `/assets/icons/custom/` 目录下，而且必须是单色图标，否则展示会有问题。
+
+比如我将文件 `colorAlipay.svg` 放入该目录，那么我调用时如下：
+
+```html
+<template>
+	<Icon name="custom-color-alipay" />
+</template>
+```
+
+用短横线分割单词即可，开头用`custom-`。
+
 ### icon的hooks
 
 element的组件常常会有一些地方可以直接将vue组件作为props的形式传入，比如表单的图标：

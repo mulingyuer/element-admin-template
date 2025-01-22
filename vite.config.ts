@@ -32,9 +32,6 @@ export default defineConfig(({ mode }) => {
 			ViteCustomIconsPlugin({
 				include: ["/assets/icons/custom/"]
 			}),
-			// svgLoader({
-			// 	defaultImport: "url"
-			// }),
 			AutoImport({
 				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
 				resolvers: [
