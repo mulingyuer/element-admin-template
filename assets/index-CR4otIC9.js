@@ -1,1 +1,0 @@
-import{_ as o}from"./index-kChqE_6m.js";import{a8 as t,t as r,v as a,K as c}from"./vendor-CCDqIQ6K.js";import"./element-plus-BNia_CO0.js";const n={},s={class:"blank-layout"};function _(d,i){const e=t("router-view");return r(),a("div",s,[c(e)])}const f=o(n,[["render",_],["__scopeId","data-v-dadb5875"]]);export{f as default};

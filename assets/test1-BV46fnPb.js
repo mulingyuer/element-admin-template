@@ -1,1 +1,0 @@
-import{_ as t}from"./index-kChqE_6m.js";import{t as e,v as r}from"./vendor-CCDqIQ6K.js";import"./element-plus-BNia_CO0.js";const o={};function c(n,s){return e(),r("div",null,"test1")}const m=t(o,[["render",c]]);export{m as default};
