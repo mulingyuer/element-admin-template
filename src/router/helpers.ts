@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 17:54:10
- * @LastEditTime: 2025-01-17 11:05:42
+ * @LastEditTime: 2025-02-08 19:53:35
  * @LastEditors: mulingyuer
  * @Description: 路由辅助函数
  * @FilePath: \element-admin-template\src\router\helpers.ts
@@ -16,7 +16,12 @@ export function getModulesRoutes(globData: Record<string, any>): RouteRecordRaw[
 	const modulesRoutes: RouteRecordRaw[] = [];
 
 	Object.keys(globData).forEach((key: string) => {
-		modulesRoutes.push(globData[key].default);
+		const value = globData[key].default;
+		if (Array.isArray(value)) {
+			modulesRoutes.push(...value);
+		} else {
+			modulesRoutes.push(value);
+		}
 	});
 
 	// 排序路由

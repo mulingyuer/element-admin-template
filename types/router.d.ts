@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 14:55:57
- * @LastEditTime: 2024-09-30 11:01:29
+ * @LastEditTime: 2025-02-08 19:51:22
  * @LastEditors: mulingyuer
  * @Description: 路由类型
- * @FilePath: \spirit-app-microservice-admin\types\router.d.ts
+ * @FilePath: \element-admin-template\types\router.d.ts
  * 怎么可能会有bug！！！
  */
 import type { AuthType } from "@/router/router-auth";
@@ -26,6 +26,8 @@ declare module "vue-router" {
 		auth?: AuthType;
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
+		/** 外链地址 */
+		iframeLink?: string;
 	}
 }
 
