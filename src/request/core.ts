@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 16:18:26
- * @LastEditTime: 2025-01-16 17:55:25
+ * @LastEditTime: 2025-03-22 15:13:43
  * @LastEditors: mulingyuer
  * @Description: 请求核心
  * @FilePath: \element-admin-template\src\request\core.ts
@@ -10,7 +10,11 @@
 import { useUserStore } from "@/stores";
 import axios from "axios";
 import axiosRetry, { isNetworkOrIdempotentRequestError } from "axios-retry";
-import { showMaxRetryErrorMessage, showRequestErrorMessage } from "./helper";
+import {
+	showMaxRetryErrorMessage,
+	showRequestErrorMessage,
+	showResponseErrorMessage
+} from "./helper";
 
 const instance = axios.create({
 	baseURL: import.meta.env.VITE_APP_API_BASE_URL,
@@ -32,6 +36,7 @@ axiosRetry(instance, {
 		}
 		return false;
 	},
+	retryDelay: (retryCount) => retryCount * 500, // 重试间隔
 	onMaxRetryTimesExceeded: (error) => {
 		// 显示错误消息
 		showMaxRetryErrorMessage(error);
@@ -53,8 +58,11 @@ instance.interceptors.request.use((config) => {
 /** 响应后拦截器 */
 instance.interceptors.response.use(
 	(response) => {
-		// 根据项目情况做解包处理
-		return response.data;
+		// 响应错误弹窗
+		showResponseErrorMessage(response);
+
+		// TODO: 不要在拦截器里解包，这样会导致请求重试时数据结构发生错误
+		return response;
 	},
 	(error) => {
 		// 显示错误消息
