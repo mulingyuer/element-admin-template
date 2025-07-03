@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-01-21 15:45:20
- * @LastEditTime: 2025-01-21 16:50:55
+ * @LastEditTime: 2025-07-03 16:58:20
  * @LastEditors: mulingyuer
  * @Description: 将自定义svg转换成组件
  * @FilePath: \element-admin-template\vite-plugins\vite-custom-icons.ts
@@ -12,13 +12,16 @@ import { readFileSync } from "fs";
 import { compileTemplate } from "vue/compiler-sfc";
 import { optimize as optimizeSvg } from "svgo";
 import type { Config } from "svgo";
+import * as vite7 from "vite";
 
 export interface CustomIconsPluginOptions {
 	/** 指定目录 */
 	include?: string[];
 }
 
-export function ViteCustomIconsPlugin(options: CustomIconsPluginOptions = {}) {
+export function ViteCustomIconsPlugin(
+	options: CustomIconsPluginOptions = {}
+): vite7.Plugin<any> | vite7.Plugin<any>[] {
 	const { include } = options;
 	const exclude = ["node_modules", "public"];
 	const svgRegex = /\.svg$/;

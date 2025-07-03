@@ -1,23 +1,14 @@
 import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig, ESBuildOptions, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
-import vueDevTools from "vite-plugin-vue-devtools";
 import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Components from "unplugin-vue-components/vite";
+import { defineConfig, loadEnv } from "vite";
 import { analyzer } from "vite-bundle-analyzer";
+import removeConsole from "vite-plugin-remove-console";
+import vueDevTools from "vite-plugin-vue-devtools";
 import { ViteCustomIconsPlugin } from "./vite-plugins/vite-custom-icons";
-
-/** esbuild打包配置 */
-function getEsbuildConfig(mode: string): ESBuildOptions | undefined {
-	if (mode === "development") return undefined;
-
-	return {
-		pure: ["console.log"], // 打包移除log
-		drop: ["debugger"] // 打包移除debugger
-	};
-}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -29,6 +20,10 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			vue(),
 			vueDevTools(),
+			// 打包移除log和debugger
+			removeConsole({
+				custom: ["debugger", "console.log()"]
+			}),
 			ViteCustomIconsPlugin({
 				include: ["/assets/icons/custom/"]
 			}),
@@ -42,7 +37,7 @@ export default defineConfig(({ mode }) => {
 				dts: "types/auto-imports.d.ts",
 				eslintrc: {
 					enabled: true,
-					filepath: "./.eslintrc-auto-import.cjs",
+					filepath: "./.eslintrc-auto-import.json",
 					globalsPropValue: true
 				}
 			}),
@@ -76,21 +71,14 @@ export default defineConfig(({ mode }) => {
 				}
 			}
 		},
-		esbuild: getEsbuildConfig(mode),
 		build: {
 			target: ["es2015"],
 			rollupOptions: {
 				output: {
-					// assetFileNames: (assetInfo) => {
-					// 	// 检查输出的 asset 类型
-					// 	if (assetInfo.name === "assets/custom.symbol.svg") {
-					// 		return "assets/[name].[hash][extname]"; // 通过 Rollup 设置哈希
-					// 	}
-					// 	return "assets/[name][extname]";
-					// },
 					manualChunks: {
-						vendor: ["vue", "vue-router", "pinia", "@vueuse/core"],
-						"element-plus": ["element-plus"]
+						"vue-vendor": ["vue", "vue-router", "pinia", "pinia-plugin-persistedstate"],
+						ui: ["element-plus", "@element-plus/icons-vue", "nprogress"],
+						utils: ["@vueuse/core", "axios", "axios-retry", "dayjs"]
 					}
 				}
 			}
