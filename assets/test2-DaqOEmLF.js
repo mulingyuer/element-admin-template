@@ -1,0 +1,1 @@
+import{_ as t}from"./index-Bt-AhEsE.js";import{v as e,x as r}from"./vue-vendor-UWDIgX34.js";import"./utils-DTehxYWl.js";import"./ui-kh4yS_26.js";const o={};function c(n,s){return r(),e("div",null,"test2")}const i=t(o,[["render",c]]);export{i as default};
