@@ -1,12 +1,7 @@
->0.3%
-not dead
-not op_mini all
-last 3 version
-Chrome >= 51
-Edge >= 15
-Safari >= 10
-Firefox >= 54
-Opera >= 38
-iOS >= 10
-Android >= 5
-not IE <= 11
+chrome >= 49
+firefox >= 38
+safari >= 9.1
+edge >= 13
+ios >= 9.3
+opera >= 36
+samsung >= 5
