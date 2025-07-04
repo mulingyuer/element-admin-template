@@ -1,7 +1,7 @@
-chrome >= 49
-firefox >= 38
-safari >= 9.1
-edge >= 13
-ios >= 9.3
-opera >= 36
-samsung >= 5
+Chrome >= 49
+Firefox >= 45
+Safari >= 10
+Edge >= 14
+iOS >= 10
+Opera >= 36
+Samsung >= 5.0

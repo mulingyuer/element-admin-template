@@ -58,7 +58,7 @@ export default defineConfig(({ mode }) => {
 			// 兼容性
 			legacy({
 				modernTargets: browserslist.loadConfig({ path: cwdPath }),
-				modernPolyfills: true
+				renderLegacyChunks: false
 			})
 		],
 		resolve: {

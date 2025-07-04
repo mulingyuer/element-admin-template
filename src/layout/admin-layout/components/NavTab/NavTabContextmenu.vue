@@ -1,14 +1,14 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 16:20:24
- * @LastEditTime: 2025-01-16 11:45:55
+ * @LastEditTime: 2025-07-04 16:30:09
  * @LastEditors: mulingyuer
  * @Description: nav tab 右键菜单
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\NavTabContextmenu.vue
  * 怎么可能会有bug！！！
 -->
 <template>
-	<transition name="el-zoom-in-top">
+	<transition name="el-zoom-in-top" appear>
 		<ul v-show="show" class="nav-tab-contextmenu" :style="{ left: `${left}px`, top: `${top}px` }">
 			<template v-for="item in navTabToolsList" :key="item.key">
 				<li v-if="!item.disabled" class="nav-tab-contextmenu-item" @click="onclick(item)">
