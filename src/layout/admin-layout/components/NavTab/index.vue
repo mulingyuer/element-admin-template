@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 10:23:21
- * @LastEditTime: 2025-01-16 11:43:27
+ * @LastEditTime: 2025-07-04 16:27:18
  * @LastEditors: mulingyuer
  * @Description: 导航tab
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\index.vue
@@ -169,6 +169,7 @@ watch(
 	align-items: center;
 	transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	z-index: 3;
+	@include no-select();
 	&.is-mobile-collapse,
 	&.is-mobile {
 		left: $aside-mobile-width;
