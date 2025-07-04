@@ -9,6 +9,7 @@ import { analyzer } from "vite-bundle-analyzer";
 import removeConsole from "vite-plugin-remove-console";
 import vueDevTools from "vite-plugin-vue-devtools";
 import { ViteCustomIconsPlugin } from "./vite-plugins/vite-custom-icons";
+import legacy from "@vitejs/plugin-legacy";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -51,7 +52,18 @@ export default defineConfig(({ mode }) => {
 				],
 				dts: "types/components.d.ts"
 			}),
-			mode === "analyze" ? analyzer() : undefined
+			mode === "analyze" ? analyzer() : undefined,
+			// 兼容性
+			legacy({
+				modernTargets: [
+					"last 2 versions",
+					"safari >= 11",
+					"chrome >= 58",
+					"firefox >= 54",
+					"edge >= 16"
+				],
+				modernPolyfills: true
+			})
 		],
 		resolve: {
 			alias: {
