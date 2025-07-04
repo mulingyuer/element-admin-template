@@ -6,11 +6,11 @@
   <link rel="icon" href="/element-admin-template/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管理后台</title>
-  <script type="module" crossorigin src="/element-admin-template/assets/index-Bt-AhEsE.js"></script>
+  <script type="module" crossorigin src="/element-admin-template/assets/index-B6Y4qTO5.js"></script>
   <link rel="modulepreload" crossorigin href="/element-admin-template/assets/vue-vendor-UWDIgX34.js">
   <link rel="modulepreload" crossorigin href="/element-admin-template/assets/utils-DTehxYWl.js">
   <link rel="modulepreload" crossorigin href="/element-admin-template/assets/ui-kh4yS_26.js">
-  <link rel="stylesheet" crossorigin href="/element-admin-template/assets/index-tkgi2aMg.css">
+  <link rel="stylesheet" crossorigin href="/element-admin-template/assets/index-CpqAnZ_Z.css">
 </head>
 
 <body>
@@ -31,11 +31,19 @@
       .index-loader {
         height: 4px;
         width: 130px;
-        --c: no-repeat linear-gradient(#409EFF 0 0);
+        --c: no-repeat linear-gradient(#409EFF 0, #409EFF 0);
+        background: no-repeat linear-gradient(#409EFF 0, #409EFF 0), no-repeat linear-gradient(#409EFF 0, #409EFF 0), #c6e2ff;
+        background: no-repeat linear-gradient(#409EFF 0 0), no-repeat linear-gradient(#409EFF 0 0), #c6e2ff;
         background: var(--c), var(--c), #c6e2ff;
         background-size: 60% 100%;
         animation: l16 3s infinite;
       }
+
+      @supports (background: linear-gradient(red 0%, red 0% 1%, red 2%)) {
+.index-loader {
+        --c: no-repeat linear-gradient(#409EFF 0 0);
+      }
+}
 
       @keyframes l16 {
         0% {
