@@ -1,13 +1,13 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 14:53:53
- * @LastEditTime: 2024-10-15 11:53:46
+ * @LastEditTime: 2025-12-17 14:18:09
  * @LastEditors: mulingyuer
  * @Description: element-plus
  * @FilePath: \element-admin-template\src\plugins\element-plus.ts
  * 怎么可能会有bug！！！
  */
-import * as ElementPlusIcons from "@element-plus/icons-vue";
+// import * as ElementPlusIcons from "@element-plus/icons-vue";
 import type { App } from "vue";
 import "element-plus/theme-chalk/display.css";
 import { ElTable } from "element-plus";
@@ -28,9 +28,9 @@ function customElementPlus(app: App) {
 export const ElementPlusPlugin = {
 	install(app: App) {
 		// 全局注册ElementPlus图标
-		for (const [key, component] of Object.entries(ElementPlusIcons)) {
-			app.component(key, component);
-		}
+		// for (const [key, component] of Object.entries(ElementPlusIcons)) {
+		// 	app.component(key, component);
+		// }
 		// 定制化element-plus组件
 		customElementPlus(app);
 	}

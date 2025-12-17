@@ -1,13 +1,12 @@
 /*
  * @Author: mulingyuer
- * @Date: 2024-09-27 15:40:01
- * @LastEditTime: 2024-09-27 15:40:01
+ * @Date: 2025-10-12 16:20:48
+ * @LastEditTime: 2025-12-17 16:07:08
  * @LastEditors: mulingyuer
  * @Description: 重定向跳转hooks
- * @FilePath: \spirit-app-microservice-admin\src\hooks\useRedirect.ts
+ * @FilePath: \element-admin-template\src\composables\useRedirect.ts
  * 怎么可能会有bug！！！
  */
-// useRedirect.ts
 import type { RouteLocationRaw } from "vue-router";
 
 export type RedirectMethod = "push" | "replace";

@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 17:38:16
- * @LastEditTime: 2025-01-17 10:06:47
+ * @LastEditTime: 2025-12-17 15:57:41
  * @LastEditors: mulingyuer
  * @Description: 仪表盘
  * @FilePath: \element-admin-template\src\router\route-modules\dashboard.ts
@@ -15,7 +15,7 @@ export default {
 	component: () => import("@/views/dashboard/index.vue"),
 	meta: {
 		title: "仪表盘",
-		icon: "ri-dashboard-3-line",
+		icon: "RiDashboard_3Line",
 		auth: "required",
 		affix: true,
 		sort: 10

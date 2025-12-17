@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-01-16 15:48:18
- * @LastEditTime: 2025-03-22 15:13:03
+ * @LastEditTime: 2025-12-17 14:25:14
  * @LastEditors: mulingyuer
  * @Description: 请求辅助函数
  * @FilePath: \element-admin-template\src\request\helper.ts
@@ -37,11 +37,23 @@ export function showErrorMessage(message: string) {
 
 /** 成功响应的错误消息 */
 export function showResponseErrorMessage(response: AxiosResponse) {
-	// TODO: 请根据自己项目的接口返回格式修改
-	const { success, message } = response.data;
+	const { unpack } = response.config as AxiosRequestConfig;
 
-	// 是否报错
-	if (success === false && shouldShowErrorMessageByConfig(response.config)) {
+	// 是否显示错误消息弹窗
+	const showMessage = shouldShowErrorMessageByConfig(response.config);
+	if (!showMessage) return;
+
+	// 如果是非解包数据，那么响应值就不是预设格式，需要特殊处理
+	const isUnpack = typeof unpack === "boolean" && !unpack;
+	const isUnpackError = isUnpack && !response.data;
+	if (isUnpackError) {
+		showErrorMessage("请求的响应数据不存在或格式错误");
+		return;
+	}
+
+	// TODO: 请根据自己项目的接口返回格式修改
+	const { code, message } = response.data;
+	if (code !== 200) {
 		showErrorMessage(message);
 	}
 }
@@ -76,6 +88,7 @@ function isRetryError(error: any) {
 /** 获取错误消息 */
 function getErrorMessage(error: any): string {
 	if (axios.isCancel(error)) return error.message ?? "请求被取消";
+	// TODO: 请根据自己的项目需求修改
 	if (error instanceof AxiosError) return error.response?.data?.message ?? error.message;
 	if (error instanceof Error) return error.message;
 

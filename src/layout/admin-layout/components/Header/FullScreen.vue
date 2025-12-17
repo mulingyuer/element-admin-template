@@ -1,16 +1,18 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 09:19:41
- * @LastEditTime: 2024-09-30 17:12:45
+ * @LastEditTime: 2025-12-17 14:13:34
  * @LastEditors: mulingyuer
  * @Description: 全屏
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Header\FullScreen.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Header\FullScreen.vue
  * 怎么可能会有bug！！！
 -->
 <template>
 	<div class="full-screen" @click="toggle">
-		<Icon v-if="!isFullscreen" name="ri-fullscreen-line" size="20" />
-		<Icon v-else name="ri-fullscreen-exit-line" size="20" />
+		<el-icon size="20">
+			<i-ri-fullscreen-line v-if="!isFullscreen" />
+			<i-ri-fullscreen-exit-line v-else />
+		</el-icon>
 	</div>
 </template>
 

@@ -1,0 +1,13 @@
+// CSS 变量定义（颜色系统、字号，用于支持 Dark Mode）
+
+// 亮色
+:root {
+	--eat-layout-border-color: rgb(136, 136, 136);
+	--eat-login-bg: #f2f6ff;
+}
+
+// 暗色
+:root.dark {
+	--eat-layout-border-color: rgb(136, 136, 136);
+	--eat-login-bg: #0a0a0a;
+}

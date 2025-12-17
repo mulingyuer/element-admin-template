@@ -1,3 +1,6 @@
+// UI 库（如 Vant/Varlet）的样式覆盖
+
+// NProgress
 #nprogress .bar {
 	background: var(--el-color-primary);
 	z-index: 9999;
@@ -6,4 +9,9 @@
 	box-shadow:
 		0 0 10px var(--el-color-primary),
 		0 0 5px var(--el-color-primary);
+}
+
+// iconify icon
+.iconify {
+	display: block;
 }

@@ -1,16 +1,18 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-29 16:14:44
- * @LastEditTime: 2024-09-29 17:16:13
+ * @LastEditTime: 2025-12-17 14:13:54
  * @LastEditors: mulingyuer
  * @Description: 折叠侧边栏按钮
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Header\MenuCollapse.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Header\MenuCollapse.vue
  * 怎么可能会有bug！！！
 -->
 <template>
 	<div class="menu-collapse" @click="toggleCollapse">
-		<Icon v-if="!appStore.isCollapse" name="ri-menu-fold-line" size="20" />
-		<Icon v-else name="ri-menu-unfold-line" size="20" />
+		<el-icon size="20">
+			<i-ri-menu-fold-line v-if="!appStore.isCollapse" />
+			<i-ri-menu-unfold-line v-else />
+		</el-icon>
 	</div>
 </template>
 

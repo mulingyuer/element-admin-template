@@ -8,9 +8,29 @@ import { defineConfig, loadEnv } from "vite";
 import { analyzer } from "vite-bundle-analyzer";
 import removeConsole from "vite-plugin-remove-console";
 import vueDevTools from "vite-plugin-vue-devtools";
-import { ViteCustomIconsPlugin } from "./vite-plugins/vite-custom-icons";
 import legacy from "@vitejs/plugin-legacy";
 import browserslist from "browserslist";
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import { FileSystemIconLoader } from "unplugin-icons/loaders";
+import { optimize } from "svgo";
+
+// 净化svg
+const sanitizeSvg = (svg: string) => {
+	const result = optimize(svg, {
+		plugins: [
+			{ name: "preset-default" },
+			{
+				name: "removeAttrs",
+				params: {
+					attrs: ["width", "height", "class"]
+				}
+			}
+		]
+	});
+
+	return result.data;
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -27,9 +47,6 @@ export default defineConfig(({ mode }) => {
 			removeConsole({
 				custom: ["debugger", "console.log()"]
 			}),
-			ViteCustomIconsPlugin({
-				include: ["/assets/icons/custom/"]
-			}),
 			AutoImport({
 				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
 				resolvers: [
@@ -45,19 +62,40 @@ export default defineConfig(({ mode }) => {
 				}
 			}),
 			Components({
-				extensions: ["vue", "md"],
-				include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
 				resolvers: [
 					ElementPlusResolver({
 						importStyle: "sass"
+					}),
+					IconsResolver({
+						prefix: "i",
+						enabledCollections: ["ep", "ri", "custom-brand", "custom-ui"]
 					})
 				],
 				dts: "types/components.d.ts"
+			}),
+			Icons({
+				autoInstall: true,
+				compiler: "vue3",
+				scale: 1,
+				defaultClass: "iconify",
+				// 自定义图标
+				customCollections: {
+					// 多色图标
+					"custom-brand": FileSystemIconLoader("./src/assets/icons/brand", sanitizeSvg),
+					// 单色图标
+					"custom-ui": FileSystemIconLoader("./src/assets/icons/ui", sanitizeSvg)
+				},
+				iconCustomizer(collection, _icon, props) {
+					if (collection === "custom-ui") {
+						props.fill = "currentColor";
+					}
+				}
 			}),
 			mode === "analyze" ? analyzer() : undefined,
 			// 兼容性
 			legacy({
 				modernTargets: browserslist.loadConfig({ path: cwdPath }),
+				modernPolyfills: true,
 				renderLegacyChunks: false
 			})
 		],
@@ -70,17 +108,16 @@ export default defineConfig(({ mode }) => {
 			preprocessorOptions: {
 				scss: {
 					additionalData: `
-          @use '@/styles/element-plus/theme-light' as *;
-          @use '@/styles/element-plus/theme-dark' as *;
-          @use '@/styles/variables' as *;
-          @use '@/styles/mixins' as *;
-          `,
-					api: "modern-compiler"
+          @use "@/styles/element-plus/theme-light.scss" as *;
+          @use "@/styles/element-plus/theme-dark.scss" as *;
+          @use "@/styles/_variables.scss" as *;
+          @use "@/styles/_mixins.scss" as *;
+					`
 				}
 			}
 		},
 		build: {
-			target: ["es2015"],
+			// target: ["es2015"],
 			rollupOptions: {
 				output: {
 					manualChunks: {

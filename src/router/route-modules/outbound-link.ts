@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-01-17 10:01:42
- * @LastEditTime: 2025-02-08 19:58:39
+ * @LastEditTime: 2025-12-17 15:59:02
  * @LastEditors: mulingyuer
  * @Description: 外链
  * @FilePath: \element-admin-template\src\router\route-modules\outbound-link.ts
@@ -16,7 +16,7 @@ export default {
 	meta: {
 		auth: "public",
 		title: "Github仓库",
-		icon: "ri-github-fill",
+		icon: "RiGithubFill",
 		sort: 50
 	}
 } as RouteRecordRaw;

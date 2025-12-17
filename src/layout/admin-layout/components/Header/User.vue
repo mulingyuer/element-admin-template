@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "@/composables/useAuth";
 import userAvatar from "@/assets/images/user-avatar.jpg";
 
 const { logout } = useAuth();

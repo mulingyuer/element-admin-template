@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-26 12:16:02
- * @LastEditTime: 2025-01-21 17:22:54
+ * @LastEditTime: 2025-12-17 16:04:13
  * @LastEditors: mulingyuer
  * @Description: 首页
  * @FilePath: \element-admin-template\src\views\dashboard\index.vue
@@ -13,9 +13,18 @@
 		<div class="custom-icon">
 			<h2 class="custom-icon-title">自定义svg图标</h2>
 			<el-space :size="20" class="custom-icon-list">
-				<Icon name="custom-aly" size="36" />
-				<Icon name="custom-color-alipay" size="36" />
-				<Icon name="custom-ele" size="36" />
+				<el-icon size="36">
+					<i-custom-brand-158_吃瓜 />
+				</el-icon>
+				<el-icon size="36">
+					<i-custom-brand-158_调皮 />
+				</el-icon>
+				<el-icon size="36">
+					<i-custom-ui-aly />
+				</el-icon>
+				<el-icon size="36">
+					<i-custom-ui-ele />
+				</el-icon>
 			</el-space>
 		</div>
 	</div>

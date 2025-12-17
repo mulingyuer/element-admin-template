@@ -1,15 +1,14 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 09:28:34
- * @LastEditTime: 2024-09-27 09:33:42
+ * @LastEditTime: 2025-12-17 16:01:30
  * @LastEditors: mulingyuer
  * @Description: 进度条
- * @FilePath: \spirit-app-microservice-admin\src\utils\nprogress.ts
+ * @FilePath: \element-admin-template\src\utils\nprogress.ts
  * 怎么可能会有bug！！！
  */
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import "@/styles/nprogress.scss";
 
 //全局进度条的配置
 NProgress.configure({

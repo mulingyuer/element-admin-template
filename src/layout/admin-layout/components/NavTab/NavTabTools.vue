@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 11:41:22
- * @LastEditTime: 2025-01-16 11:16:53
+ * @LastEditTime: 2025-12-17 14:17:08
  * @LastEditors: mulingyuer
  * @Description: nav tab 工具栏
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\NavTabTools.vue
@@ -10,12 +10,9 @@
 <template>
 	<div class="nav-tab-tools">
 		<div class="nav-tab-tools-refresh" @click="onRefresh">
-			<Icon
-				class="nav-tab-tools-refresh-icon"
-				:class="{ 'animate-spin': loading }"
-				name="ri-refresh-line"
-				size="18"
-			/>
+			<el-icon class="nav-tab-tools-refresh-icon" :class="{ 'animate-spin': loading }" size="18">
+				<i-ri-refresh-line />
+			</el-icon>
 		</div>
 		<el-dropdown
 			class="nav-tab-tools-more-dropdown"
@@ -24,7 +21,9 @@
 			@visible-change="onVisibleChange"
 		>
 			<div class="nav-tab-tools-more">
-				<Icon name="ri-more-line" size="18" />
+				<el-icon size="18">
+					<i-ri-more-line />
+				</el-icon>
 			</div>
 			<template #dropdown>
 				<el-dropdown-menu>
@@ -34,7 +33,9 @@
 						:command="item.key"
 						:disabled="item.disabled"
 					>
-						<Icon :name="item.icon" size="16" />
+						<el-icon size="16">
+							<component :is="item.icon" />
+						</el-icon>
 						{{ item.label }}
 					</el-dropdown-item>
 				</el-dropdown-menu>

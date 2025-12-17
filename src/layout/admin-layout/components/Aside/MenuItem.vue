@@ -1,27 +1,33 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-27 16:40:29
- * @LastEditTime: 2024-09-30 09:03:24
+ * @LastEditTime: 2025-12-17 14:12:31
  * @LastEditors: mulingyuer
  * @Description: 按钮item
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Aside\MenuItem.vue
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\Aside\MenuItem.vue
  * 怎么可能会有bug！！！
 -->
 <template>
 	<el-sub-menu v-if="menu.children && menu.children.length > 0" :index="menu.path">
 		<template #title>
-			<Icon v-if="menu.icon" :name="menu.icon" size="19" />
+			<el-icon v-if="menu.icon" size="19">
+				<component :is="ICON_MAP[menu.icon]" />
+			</el-icon>
 			<span class="truncate">{{ menu.title }}</span>
 		</template>
 		<MenuItem v-for="menuItem in menu.children" :key="menuItem.path" :menu="menuItem" />
 	</el-sub-menu>
 	<el-menu-item v-else :index="menu.path">
-		<Icon v-if="menu.icon" :name="menu.icon" size="19" />
+		<el-icon v-if="menu.icon" size="19">
+			<component :is="ICON_MAP[menu.icon]" />
+		</el-icon>
 		<span class="truncate">{{ menu.title }}</span>
 	</el-menu-item>
 </template>
 
 <script setup lang="ts">
+import { ICON_MAP } from "@/constant/icon-map";
+
 defineProps({
 	menu: {
 		type: Object as PropType<AdminApp.Menu>,

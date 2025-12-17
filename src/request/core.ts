@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 16:18:26
- * @LastEditTime: 2025-03-22 15:13:43
+ * @LastEditTime: 2025-12-17 14:18:47
  * @LastEditors: mulingyuer
  * @Description: 请求核心
  * @FilePath: \element-admin-template\src\request\core.ts
@@ -21,7 +21,8 @@ const instance = axios.create({
 	enableRetry: true,
 	showErrorMessage: true,
 	// showCancelErrorMessage: true, // 这里配置无效，索性注释了
-	timeout: 15000 // ms
+	timeout: 15000, // ms
+	unpack: true
 });
 let userStore: ReturnType<typeof useUserStore>;
 

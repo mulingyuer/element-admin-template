@@ -61,8 +61,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAuth } from "@/hooks/useAuth";
-import { useRedirect } from "@/hooks/useRedirect";
+import { useAuth } from "@/composables/useAuth";
+import { useRedirect } from "@/composables/useRedirect";
 import type { FormInstance, FormRules } from "element-plus";
 
 interface RuleForm {

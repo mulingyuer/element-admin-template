@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2025-01-16 11:13:58
- * @LastEditTime: 2025-01-16 11:13:58
+ * @LastEditTime: 2025-12-17 14:13:16
  * @LastEditors: mulingyuer
  * @Description: 暗色亮色切换按钮
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\Header\LightDarkToggle.vue
@@ -20,13 +20,15 @@
 </template>
 
 <script setup lang="ts">
-import { useIcon } from "@/hooks/useIcon";
+import { useIcon } from "@/composables/useIcon";
 import { useAppStore } from "@/stores";
+import RiContrast_2Line from "~icons/ri/contrast-2-line";
+import RiSunLine from "~icons/ri/sun-line";
 
 const appStore = useAppStore();
 
-const DarkIcon = useIcon({ name: "ri-contrast-2-line", size: 20 });
-const LightIcon = useIcon({ name: "ri-sun-line", size: 20 });
+const DarkIcon = useIcon(RiContrast_2Line, { size: 20 });
+const LightIcon = useIcon(RiSunLine, { size: 20 });
 const isDark = storeToRefs(appStore).isDark;
 const toggleDark = useToggle(isDark);
 const btnType = computed(() => (isDark.value ? "" : "primary"));
@@ -39,47 +41,65 @@ function onToggle(event: MouseEvent) {
 
 	const x = event.clientX;
 	const y = event.clientY;
+	// 计算从点击位置到视窗边缘的最大距离作为动画半径
 	const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
 
-	const transition = document.startViewTransition(() => {
-		toggleDark();
-	});
+	// 设置CSS自定义属性，用于动画定位
+	document.documentElement.style.setProperty("--x", x + "px");
+	document.documentElement.style.setProperty("--y", y + "px");
+	document.documentElement.style.setProperty("--r", endRadius + "px");
 
-	transition.ready.then(() => {
-		const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-		document.documentElement.animate(
-			{
-				clipPath: !isDark.value ? [...clipPath].reverse() : clipPath
-			},
-			{
-				duration: 350,
-				easing: "ease-in-out",
-				pseudoElement: !isDark.value ? "::view-transition-old(root)" : "::view-transition-new(root)"
-			}
-		);
+	document.startViewTransition(() => {
+		toggleDark();
 	});
 }
 </script>
 
 <style lang="scss">
-::view-transition-old(root),
-::view-transition-new(root) {
-	animation: none;
-	mix-blend-mode: normal;
+html {
+	&::view-transition-old(*) {
+		animation: none;
+	}
+
+	&::view-transition-new(*) {
+		animation: clip 0.35s ease-in-out both;
+	}
+
+	&::view-transition-old(root) {
+		z-index: 1;
+	}
+
+	&::view-transition-new(root) {
+		z-index: 9999;
+	}
+
+	&.dark {
+		&::view-transition-old(*) {
+			animation: clip 0.35s ease-in-out reverse both;
+		}
+
+		&::view-transition-new(*) {
+			animation: none;
+		}
+
+		&::view-transition-old(root) {
+			z-index: 9999;
+		}
+
+		&::view-transition-new(root) {
+			z-index: 1;
+		}
+	}
 }
 
-/* 进入dark模式和退出dark模式时，两个图像的位置顺序正好相反 */
-.dark::view-transition-old(root) {
-	z-index: 1;
-}
-.dark::view-transition-new(root) {
-	z-index: 999;
-}
+// 定义动画
+@keyframes clip {
+	from {
+		clip-path: circle(0% at var(--x) var(--y));
+	}
 
-::view-transition-old(root) {
-	z-index: 999;
-}
-::view-transition-new(root) {
-	z-index: 1;
+	to {
+		clip-path: circle(var(--r) at var(--x) var(--y));
+	}
 }
 </style>

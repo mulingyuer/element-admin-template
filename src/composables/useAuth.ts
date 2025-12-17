@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
- * @Date: 2024-09-30 10:01:54
- * @LastEditTime: 2024-09-30 17:34:34
+ * @Date: 2025-10-12 16:20:48
+ * @LastEditTime: 2025-12-17 16:06:37
  * @LastEditors: mulingyuer
  * @Description: 登录退出通用处理hooks
- * @FilePath: \spirit-app-microservice-admin\src\hooks\useAuth.ts
+ * @FilePath: \element-admin-template\src\composables\useAuth.ts
  * 怎么可能会有bug！！！
  */
 import { useUserStore, useNavTabStore } from "@/stores";

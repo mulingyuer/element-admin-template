@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 10:23:21
- * @LastEditTime: 2025-07-04 16:27:18
+ * @LastEditTime: 2025-12-17 14:15:16
  * @LastEditors: mulingyuer
  * @Description: 导航tab
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\index.vue
@@ -18,15 +18,18 @@
 			>
 				<template #label>
 					<div class="nav-tab-label" @contextmenu.prevent="onNavTabContextmenu($event, item)">
-						<Icon v-if="item.icon" class="nav-tab-icon" :name="item.icon" />
+						<el-icon v-if="item.icon" class="nav-tab-icon">
+							<component :is="ICON_MAP[item.icon]" />
+						</el-icon>
 						<span class="nav-tab-title">{{ item.title }}</span>
-						<Icon
+						<el-icon
 							v-if="!item.affix"
 							class="nav-tab-close"
-							name="ri-close-line"
 							size="14"
 							@click.prevent.stop="onCloseNavTab(item.fullPath)"
-						/>
+						>
+							<i-ri-close-line />
+						</el-icon>
 					</div>
 				</template>
 			</el-tab-pane>
@@ -48,6 +51,7 @@ import type { TabPaneName } from "element-plus";
 import { useAppStore, useNavTabStore } from "@/stores";
 import type { RouteRecordRaw } from "vue-router";
 import { updateNavTabToolsList } from "./helper";
+import { ICON_MAP } from "@/constant/icon-map";
 
 const route = useRoute();
 const router = useRouter();

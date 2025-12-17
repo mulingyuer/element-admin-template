@@ -1,16 +1,23 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-30 16:21:12
- * @LastEditTime: 2024-09-30 17:14:32
+ * @LastEditTime: 2025-12-17 14:14:57
  * @LastEditors: mulingyuer
  * @Description: nav tab 帮助函数
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\NavTab\helper.ts
+ * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\helper.ts
  * 怎么可能会有bug！！！
  */
+import type { Component } from "vue";
 import { useNavTabStore, useAppStore } from "@/stores";
+import RiRefreshLine from "~icons/ri/refresh-line";
+import RiCloseLine from "~icons/ri/close-line";
+import RiArrowLeftDoubleLine from "~icons/ri/arrow-left-double-line";
+import RiArrowRightDoubleLine from "~icons/ri/arrow-right-double-line";
+import RiArrowLeftRightLine from "~icons/ri/arrow-left-right-line";
+import RiContractLeftRightLine from "~icons/ri/contract-left-right-line";
 
 export interface NavTabToolsItem {
-	icon: string;
+	icon: Component;
 	label: string;
 	key: string;
 	show: boolean;
@@ -23,42 +30,42 @@ let appStore: ReturnType<typeof useAppStore>;
 /** nav tab 工具栏列表 */
 export const navTabToolsList = ref<Array<NavTabToolsItem>>([
 	{
-		icon: "ri-refresh-line",
+		icon: markRaw(RiRefreshLine),
 		label: "刷新页面",
 		key: "refresh",
 		show: true,
 		disabled: false
 	},
 	{
-		icon: "ri-close-line",
+		icon: markRaw(RiCloseLine),
 		label: "关闭当前",
 		key: "closeCurrent",
 		show: true,
 		disabled: false
 	},
 	{
-		icon: "ri-arrow-left-double-line",
+		icon: markRaw(RiArrowLeftDoubleLine),
 		label: "关闭左侧",
 		key: "closeLeft",
 		show: true,
 		disabled: false
 	},
 	{
-		icon: "ri-arrow-right-double-line",
+		icon: markRaw(RiArrowRightDoubleLine),
 		label: "关闭右侧",
 		key: "closeRight",
 		show: true,
 		disabled: false
 	},
 	{
-		icon: "ri-arrow-left-right-line",
+		icon: markRaw(RiArrowLeftRightLine),
 		label: "关闭其他",
 		key: "closeOther",
 		show: true,
 		disabled: false
 	},
 	{
-		icon: "ri-contract-left-right-line",
+		icon: markRaw(RiContractLeftRightLine),
 		label: "关闭所有",
 		key: "closeAll",
 		show: true,
@@ -80,23 +87,23 @@ export function updateNavTabToolsList(fullPath: string, affix?: boolean) {
 
 	// 如果当前路由固定标签，则禁用关闭
 	if (affix) {
-		navTabToolsList.value[1].disabled = true;
+		navTabToolsList.value[1]!.disabled = true;
 	}
 
 	// 如果已经是第一个了，禁用左侧关闭
 	if (findIndex === 0) {
-		navTabToolsList.value[2].disabled = true;
+		navTabToolsList.value[2]!.disabled = true;
 	}
 
 	// 如果已经是最后一个了，禁用右侧关闭
 	if (findIndex === navTabStore.navTabList.length - 1) {
-		navTabToolsList.value[3].disabled = true;
+		navTabToolsList.value[3]!.disabled = true;
 	}
 
 	// 如果只有一个标签，禁用其他关闭和全部关闭
 	if (navTabStore.navTabList.length < 2) {
-		navTabToolsList.value[4].disabled = true;
-		navTabToolsList.value[5].disabled = true;
+		navTabToolsList.value[4]!.disabled = true;
+		navTabToolsList.value[5]!.disabled = true;
 	}
 }
 

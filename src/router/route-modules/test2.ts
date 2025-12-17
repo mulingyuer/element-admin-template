@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-29 09:14:56
- * @LastEditTime: 2025-01-17 10:07:03
+ * @LastEditTime: 2025-12-17 15:59:55
  * @LastEditors: mulingyuer
  * @Description:
  * @FilePath: \element-admin-template\src\router\route-modules\test2.ts
@@ -14,7 +14,7 @@ export default {
 	component: () => import("@/layout/admin-layout/index.vue"),
 	meta: {
 		title: "测试",
-		icon: "ri-flask-line",
+		icon: "RiFlaskLine",
 		sort: 30
 	},
 	children: [
@@ -24,7 +24,7 @@ export default {
 			component: () => import("@/views/test/test2.vue"),
 			meta: {
 				title: "测试2",
-				icon: "ri-flask-line",
+				icon: "RiFlaskLine",
 				sort: 1
 			}
 		},
@@ -34,7 +34,7 @@ export default {
 			component: () => import("@/views/test/test3.vue"),
 			meta: {
 				title: "测试3",
-				icon: "ri-flask-line",
+				icon: "RiFlaskLine",
 				sort: 2
 			}
 		}
