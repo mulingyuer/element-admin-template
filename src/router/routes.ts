@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:32:12
- * @LastEditTime: 2024-09-30 17:10:54
+ * @LastEditTime: 2025-12-17 16:12:54
  * @LastEditors: mulingyuer
  * @Description: routes
- * @FilePath: \spirit-app-microservice-admin\src\router\routes\index.ts
+ * @FilePath: \element-admin-template\src\router\routes.ts
  * 怎么可能会有bug！！！
  */
 import type { RouteRecordRaw } from "vue-router";
@@ -31,7 +31,7 @@ export const notFoundRoute: RouteRecordRaw = {
 			component: () => import("@/views/error/404.vue"),
 			meta: {
 				title: "404",
-				icon: "ri-calendar-close-line"
+				icon: "RiCalendarCloseLine"
 			}
 		}
 	]

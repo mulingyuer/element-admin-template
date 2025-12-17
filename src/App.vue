@@ -27,7 +27,7 @@ isMobile();
 function deviceDetection() {
 	const target = document.documentElement;
 	useResizeObserver(target, (entries) => {
-		const { width } = entries[0].contentRect; // 获取宽度
+		const { width } = entries[0]!.contentRect; // 获取宽度
 		if (width <= 640) {
 			appStore.setIsMobile(true);
 			!appStore.isCollapse && !appStore.isUserCollapse && appStore.setIsCollapse(true);

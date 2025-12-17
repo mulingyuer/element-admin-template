@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-12-17 14:07:44
- * @LastEditTime: 2025-12-17 16:07:24
+ * @LastEditTime: 2025-12-17 16:12:46
  * @LastEditors: mulingyuer
  * @Description: 图标映射，用于存放一些不方便传递组件类型的图标。比如：路由参数中的图标、NavTab中的图标
  * @FilePath: \element-admin-template\src\constant\icon-map.ts
