@@ -122,7 +122,7 @@ export default defineConfig(({ mode }) => {
 				output: {
 					manualChunks: {
 						"vue-vendor": ["vue", "vue-router", "pinia", "pinia-plugin-persistedstate"],
-						ui: ["element-plus", "@element-plus/icons-vue", "nprogress"],
+						ui: ["element-plus", "nprogress"],
 						utils: ["@vueuse/core", "axios", "axios-retry", "dayjs"]
 					}
 				}
