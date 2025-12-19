@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 17:54:10
- * @LastEditTime: 2025-12-17 16:12:04
+ * @LastEditTime: 2025-12-19 17:15:20
  * @LastEditors: mulingyuer
  * @Description: 路由辅助函数
  * @FilePath: \element-admin-template\src\router\helpers.ts
@@ -30,8 +30,19 @@ export function getModulesRoutes(globData: Record<string, any>): RouteRecordRaw[
 
 /** 路由排序 */
 export function sortRoutes(routes: RouteRecordRaw[]): RouteRecordRaw[] {
+	const getSortValue = (route: RouteRecordRaw) => {
+		const raw = route.meta?.sort as unknown;
+		const num = typeof raw === "number" ? raw : Number(raw);
+		return Number.isFinite(num) ? num : Number.POSITIVE_INFINITY;
+	};
+
 	return routes
-		.toSorted((next, pre) => Number(next.meta?.sort) - Number(pre.meta?.sort))
+		.toSorted((next, pre) => {
+			const a = getSortValue(next);
+			const b = getSortValue(pre);
+
+			return a - b;
+		})
 		.map((item) => {
 			if (item.children) sortRoutes(item.children);
 			return item;

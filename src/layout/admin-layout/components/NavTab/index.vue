@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 10:23:21
- * @LastEditTime: 2025-12-17 14:15:16
+ * @LastEditTime: 2025-12-19 17:14:08
  * @LastEditors: mulingyuer
  * @Description: 导航tab
  * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\index.vue
@@ -76,7 +76,7 @@ const activeName = computed({
 	set(_val: string) {}
 });
 /** 是否显示右键菜单 */
-const showNavTabContextmenu = ref(true);
+const showNavTabContextmenu = ref(false);
 const navTabContextmenuLeft = ref(0);
 const navTabContextmenuTop = ref(0);
 const navTabContextmenuFullPath = ref("");
