@@ -1,114 +1,149 @@
 # element-admin-template
 
-基于element-plus、vue3、pinia的后台管理模版，目标是一个不添加任何业务逻辑的后台模板，支持快速上手和二次开发。
+基于 **Vue 3** + **Vite** + **TypeScript** + **Element Plus** 的中后台管理系统基础模板。
 
-## 起因
+此模板的目标是提供一个**简洁、纯净**的后台起步环境，不内置复杂的业务逻辑，仅保留最核心的基础功能，支持快速上手和二次开发。
 
-忙着写后端代码，发现需要一个管理后台来可视化操作一些数据，但是看了下市面上现成的模板都很复杂，都内置了很多复杂的逻辑，虽然说变得很强大了，但是也不利于二开，需要花太多的心智在了解这个后台上了，但是我就是为了省事才不想自己封装的，为此就想自己弄一个简单的模板，保留基本的功能，复杂的逻辑都可以后续添加。
+---
 
-于是找了一个ui还不错的开源模板，然后自己研究并手搓了这个后台。
+## 📖 简介
 
-感谢 [Element-Admin](https://github.com/KYX1234/Element-Admin) 这个项目。
+在开发后端业务时，往往需要一个可视化管理后台。市面上许多现成的模板虽然功能强大，但往往过于繁重，内置了大量业务逻辑，导致二次开发的心智负担较重。
 
-## 在线预览
+**element-admin-template** 旨在解决这一痛点：它只关注基础建设，将复杂的逻辑留给开发者根据实际业务去填充。
 
-特意搞了一个在线demo，以后项目主分支更新，demo都会自动构建了，访问地址：[在线预览](https://mulingyuer.github.io/element-admin-template/)
+> 感谢 [Element-Admin](https://github.com/KYX1234/Element-Admin) 项目提供的灵感与参考。
 
-## 效果图
+---
 
-![效果图](./docs/readme.gif)
+## 🔗 在线预览
 
-## 特性说明
+项目主分支（main）会自动构建预览版，访问地址：[在线预览](https://mulingyuer.github.io/element-admin-template/)
 
-1. 封装了remix icon图标字体；
-2. 策略模式路由守卫；
-3. 基于路由生成侧边栏；
-4. 简单的axios封装；
-5. 只使用了scss预处理（没有使用unocss），新手上手也是嘎嘎快；
-6. 其他想起来补充...
+---
 
-## 特殊说明
+## ✨ 特性
 
-### icon图标字体
+- ⚡️ **Vue 3 + Vite**: 极致的开发体验。
+- 💪 **TypeScript**: 全程类型安全。
+- 🎨 **Element Plus**: 优秀的 UI 组件库。
+- 📦 **自动导入**: 基于 `unplugin-auto-import` 和 `unplugin-vue-components` 实现组件和 API 的按需自动导入。
+- 🧩 **全量图标方案**:
+  - 集成了 `unplugin-icons`，支持 **Element Plus** 和 **Remix Icon** 图标集。
+  - 支持 **自定义 SVG 图标**（本地文件自动加载）。
+- 🍍 **Pinia**: 状态管理，并集成 `pinia-plugin-persistedstate` 实现持久化桌面。
+- 🚀 **模块化路由**: 基于策略模式的路由守卫，支持由路由配置自动生成侧边栏菜单。
+- 📡 **Axios 封装**: 现代化的请求封装，支持请求重试。
+- 📱 **响应式布局**: 完美适配移动端和桌面端，侧边栏状态自动切换。
+- 🪄 **代码规范**: 包含 ESLint、Prettier、Oxlint 等工具提升开发效率和质量。
 
-由于element-plus的图标字体太少了，我找了好久发现remix icon的图标字体还不错，利用`xlink`的方式实现，当然为了也能使用element的icon图标，封装了`Icon`组件，传入对应的图标name即可。
+---
 
-比如你想用element的图标，就以`el-icon-`开头，比如我们在官网点击图标一般得到如下内容：
+## 🛠️ 技术栈
 
-```html
-<el-icon><Connection /></el-icon>
+| 核心库 | 说明 |
+| :--- | :--- |
+| **Vue 3** | 响应式框架，使用 Composition API |
+| **Vite** | 打包工具 / 开发服务器 |
+| **TypeScript** | 类型定义 |
+| **Element Plus** | UI 组件库 |
+| **Vue Router** | 路由管理 |
+| **Pinia** | 状态管理 |
+| **VueUse** | 组合式工具集 |
+| **Axios** | 网络请求库 |
+| **Sass** | CSS 预处理器 |
+
+---
+
+## 📂 项目目录
+
+```text
+src/
+├── api/          # 接口定义
+├── assets/       # 静态资源（图标、图片）
+├── components/   # 全局公共组件
+├── composables/  # 组合式函数 (hooks)
+├── constant/     # 常量定义
+├── layout/       # 布局组件
+├── plugins/      # 插件配置
+├── request/      # Axios 请求封装
+├── router/       # 路由配置与守卫
+├── stores/       # 状态管理
+├── styles/       # 全局样式
+├── utils/        # 工具函数
+└── views/        # 页面视图
 ```
 
-那么name就是：`el-icon-connection`；
+---
 
-如果使用remix的图标，我们打开官网：[remix](https://remixicon.com/)
+## 🚀 快速开始
 
-直接复制class名称即可，比如点击图标会显示代码：
-
-```html
-<i class="ri-arrow-up-line"></i>
+### 1. 克隆项目
+```bash
+git clone https://github.com/mulingyuer/element-admin-template.git
+cd element-admin-template
 ```
 
-那么name就是：`ri-arrow-up-line`；
-
-> 实现原理分两块：
-> 1.element的图标是将所有图标组件挂载为全局了；
-> 2.remix是利用xlink引入一个完整的图标svg文件，然后通过#name的方式显示对应的icon；
-> 本质上都是引入了大量内容，主要是为了省事，如果你对打包后的体积有要求，可以考虑自己单个import引入，比如svg可以单个下载完后，用`vite-plugin-svg-icons`这个插件来调用。具体可以自己研究了。
-
-**示例：**
-
-```html
-<template>
-	<Icon name="ri-search-line" />
-</template>
+### 2. 安装依赖
+```bash
+pnpm install
 ```
 
-最近尝试加入了自定义svg图标，使用自定义svg图标，你需要将svg文件放置 `/assets/icons/custom/` 目录下，而且必须是单色图标，否则展示会有问题。
-
-比如我将文件 `colorAlipay.svg` 放入该目录，那么我调用时如下：
-
-```html
-<template>
-	<Icon name="custom-color-alipay" />
-</template>
+### 3. 本地开发
+```bash
+pnpm dev
 ```
 
-用短横线分割单词即可，开头用`custom-`。
-
-### icon的hooks
-
-element的组件常常会有一些地方可以直接将vue组件作为props的形式传入，比如表单的图标：
-
-```html
-<template>
-	<el-input v-model="input3" :suffix-icon="Search" />
-</template>
-
-<script lang="ts" setup>
-	import { Search } from "@element-plus/icons-vue";
-</script>
+### 4. 项目打包
+```bash
+pnpm build
 ```
 
-这种方式如果我们想使用remix的图标，直接使用Icon组件是不行的，因为Icon组件需要传入一个name参数，才可以正常使用，这种场景显然不合适。
+---
 
-简单的做法就是基于Icon组件封装一个新的vue组件，这样做显然非常麻烦，为此封装了一个`useIcon`的hooks，可以直接传入remix的icon name，然后返回一个渲染好的Icon组件。
+## 🌍 环境变量
+
+项目支持多套环境配置：
+- `.env.development`: 开发环境
+- `.env.production`: 生产环境
+
+常见变量说明：
+- `VITE_APP_TITLE`: 网页标题。
+- `VITE_APP_BASE_URL`: 应用部署时的基础路径（控制 `BASE_URL`）。
+
+---
+
+## 💡 图标使用说明
+
+项目集成了 `unplugin-icons`，可以像使用 Vue 组件一样直接使用图标。
+
+### Element Plus 图标
 
 ```html
-<template>
-	<el-input v-model="input3" :suffix-icon="Search" />
-</template>
-
-<script lang="ts" setup>
-	import { useIcon } from "@/hooks/useIcon";
-
-	const Search = useIcon({ name: "ri-search-line" });
-</script>
+<i-ep-search />
 ```
 
-这样就能直接使用remix的图标了，当然你传`el-icon-xxx`也是可以的，只不过会显示element的图标。
+### Remix Icon 图标
 
-### 环境变量
+```html
+<i-ri-heart-fill />
+```
 
-1. `VITE_APP_TITLE`用于控制页面的标题和部分需要使用标题的地方，比如侧边栏logo旁的文字。
-2. `VITE_APP_BASE_URL`用于控制路由的前缀链接，不懂就看vue-router文档。
+### 自定义图标
+
+将 SVG 文件放入 `src/assets/icons/brand` 或 `src/assets/icons/ui` 目录，即可自动加载：
+```html
+<i-custom-brand-your-icon-name />
+```
+
+1. brand 中存放彩色图标
+2. ui 中存放单色图标
+
+### 函数式调用
+如果需要在 JS 中使用图标（如作为组件 Props 传入），可以使用 `useIcon` composable。
+
+---
+
+## 📄 开源协议
+
+本项目基于 [MIT License](LICENSE) 协议。
