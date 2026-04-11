@@ -54,12 +54,7 @@ export default defineConfig(({ mode }) => {
 						importStyle: "sass"
 					})
 				],
-				dts: "types/auto-imports.d.ts",
-				eslintrc: {
-					enabled: true,
-					filepath: "./.eslintrc-auto-import.json",
-					globalsPropValue: true
-				}
+				dts: "types/auto-imports.d.ts"
 			}),
 			Components({
 				resolvers: [
