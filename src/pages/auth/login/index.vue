@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
- * @Date: 2024-09-26 12:15:39
- * @LastEditTime: 2025-01-16 11:39:13
+ * @Date: 2026-04-11 16:59:11
+ * @LastEditTime: 2026-04-11 17:00:37
  * @LastEditors: mulingyuer
  * @Description: 登录页面
- * @FilePath: \element-admin-template\src\views\login\index.vue
+ * @FilePath: \element-admin-template\src\pages\auth\login\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -69,6 +69,16 @@ interface RuleForm {
 	account: string;
 	password: string;
 }
+
+definePage({
+	name: "Login",
+	meta: {
+		layout: "blank",
+		auth: ["guest"],
+		title: "登录",
+		isHide: true
+	}
+});
 
 const redirect = useRedirect();
 const { login } = useAuth();

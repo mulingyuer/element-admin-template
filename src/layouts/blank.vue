@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
- * @Date: 2024-09-26 17:11:37
- * @LastEditTime: 2024-09-27 09:40:06
+ * @Date: 2026-04-11 16:53:55
+ * @LastEditTime: 2026-04-11 16:53:55
  * @LastEditors: mulingyuer
  * @Description: 空白布局
- * @FilePath: \spirit-app-microservice-admin\src\layout\blank-layout\index.vue
+ * @FilePath: \element-admin-template\src\layout\blank.vue
  * 怎么可能会有bug！！！
 -->
 <template>

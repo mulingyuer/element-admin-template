@@ -14,6 +14,9 @@ import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import { optimize } from "svgo";
+import VueRouter from "vue-router/vite";
+import { VueRouterAutoImports } from "vue-router/unplugin";
+import Layouts from "vite-plugin-vue-layouts-next";
 
 // 净化svg
 const sanitizeSvg = (svg: string) => {
@@ -41,14 +44,26 @@ export default defineConfig(({ mode }) => {
 		/** 路由的 baseURL，控制 BASE_URL 环境变量 */
 		base: viteEnv.VITE_APP_BASE_URL,
 		plugins: [
+			VueRouter({
+				routesFolder: "src/pages",
+				exclude: ["**/components/*.vue", "**/components/**/*.vue", "**/_*/**", "**/_*"],
+				dts: "types/typed-router.d.ts",
+				extendRoute: (route) => {
+					// 如果路由是透传路由，则设置 layout 为 false，阻止默认布局的添加
+					if (route.isPassThrough) {
+						route.meta = { ...route.meta, layout: false };
+					}
+				}
+			}),
 			vue(),
+			Layouts(),
 			vueDevTools(),
 			// 打包移除log和debugger
 			removeConsole({
 				custom: ["debugger", "console.log()"]
 			}),
 			AutoImport({
-				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
+				imports: ["vue", VueRouterAutoImports, "pinia", "@vueuse/core"],
 				resolvers: [
 					ElementPlusResolver({
 						importStyle: "sass"

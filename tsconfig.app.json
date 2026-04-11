@@ -3,11 +3,13 @@
 	"include": ["src/**/*", "src/**/*.vue", "types/**/*.d.ts", "src/request/axios.d.ts"],
 	"exclude": ["src/**/__tests__/*"],
 	"compilerOptions": {
+		"moduleResolution": "Bundler",
+		"noUncheckedIndexedAccess": true,
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 		"paths": {
 			"@/*": ["./src/*"]
 		},
 		"lib": ["ES2023", "DOM", "DOM.Iterable"],
-		"types": ["unplugin-icons/types/vue"]
+		"types": ["unplugin-icons/types/vue", "vite-plugin-vue-layouts-next/client", "vue-router/auto"]
 	}
 }
