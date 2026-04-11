@@ -115,10 +115,21 @@ export default defineConfig(({ mode }) => {
 			// target: ["es2015"],
 			rollupOptions: {
 				output: {
-					manualChunks: {
-						"vue-vendor": ["vue", "vue-router", "pinia", "pinia-plugin-persistedstate"],
-						ui: ["element-plus", "nprogress"],
-						utils: ["@vueuse/core", "axios", "axios-retry", "dayjs"]
+					codeSplitting: {
+						groups: [
+							{
+								name: "vue-vendor",
+								test: /[\\/]node_modules[\\/](vue|vue-router|pinia|pinia-plugin-persistedstate)[\\/]/
+							},
+							{
+								name: "ui",
+								test: /[\\/]node_modules[\\/](element-plus|nprogress)[\\/]/
+							},
+							{
+								name: "utils",
+								test: /[\\/]node_modules[\\/](\@vueuse\/core|axios|axios-retry|dayjs)[\\/]/
+							}
+						]
 					}
 				}
 			}

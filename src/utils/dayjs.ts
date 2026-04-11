@@ -1,15 +1,22 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-10-11 17:10:47
- * @LastEditTime: 2026-01-06 15:33:51
+ * @LastEditTime: 2026-04-11 16:28:14
  * @LastEditors: mulingyuer
  * @Description: dayjs封装
  * @FilePath: \element-admin-template\src\utils\dayjs.ts
  * 怎么可能会有bug！！！
  */
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import "dayjs/locale/zh-cn";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 dayjs.locale("zh-cn");
+
+export { dayjs };
 
 /** 格式化日期 */
 export function formatDate(date: Date | string | number, format: string): string {
