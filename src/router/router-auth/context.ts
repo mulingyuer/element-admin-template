@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2026-04-11 16:46:54
- * @LastEditTime: 2026-04-11 16:48:33
+ * @LastEditTime: 2026-04-11 17:18:57
  * @LastEditors: mulingyuer
  * @Description: 数据上下文
  * @FilePath: \element-admin-template\src\router\router-auth\context.ts
@@ -21,6 +21,6 @@ export class RouterAuthContext {
 	) {
 		const userStore = useUserStore();
 
-		this.isLogin = userStore.isLogin.value;
+		this.isLogin = userStore.isLogin;
 	}
 }
