@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@erlihs/pinia-plugin-storage':
+        specifier: ^1.1.3
+        version: 1.1.3(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
       '@vueuse/core':
         specifier: ^14.1.0
         version: 14.1.0(vue@3.5.32(typescript@6.0.2))
@@ -32,9 +35,6 @@ importers:
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))
-      pinia-plugin-persistedstate:
-        specifier: ^4.7.1
-        version: 4.7.1(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))
       vue:
         specifier: ^3.5.32
         version: 3.5.32(typescript@6.0.2)
@@ -1074,6 +1074,13 @@ packages:
 
   '@emnapi/wasi-threads@1.2.1':
     resolution: {integrity: sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==}
+
+  '@erlihs/pinia-plugin-storage@1.1.3':
+    resolution: {integrity: sha512-4Ac4devUX0e4CypHyXX19u6O0Hp9GmsCFaXFCRl4K7VXwlvvPoUCkIy6bzQUAAHXtrHXb+S0cmwJmLjsA52skA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      pinia: ^2.0.0 || ^3.0.0
+      vue: ^3.0.0
 
   '@esbuild/aix-ppc64@0.27.2':
     resolution: {integrity: sha512-GZMB+a0mOMZs4MpDbj8RJp4cw+w1WV5NYD6xzgvzUJ5Ek2jerwfO2eADyI6ExDSUED+1X8aMbegahsJi+8mgpw==}
@@ -2151,9 +2158,6 @@ packages:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
     engines: {node: '>=12'}
 
-  defu@6.1.4:
-    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
-
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
@@ -2715,20 +2719,6 @@ packages:
     resolution: {integrity: sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==}
     engines: {node: '>=0.10'}
     hasBin: true
-
-  pinia-plugin-persistedstate@4.7.1:
-    resolution: {integrity: sha512-WHOqh2esDlR3eAaknPbqXrkkj0D24h8shrDPqysgCFR6ghqP/fpFfJmMPJp0gETHsvrh9YNNg6dQfo2OEtDnIQ==}
-    peerDependencies:
-      '@nuxt/kit': '>=3.0.0'
-      '@pinia/nuxt': '>=0.10.0'
-      pinia: '>=3.0.0'
-    peerDependenciesMeta:
-      '@nuxt/kit':
-        optional: true
-      '@pinia/nuxt':
-        optional: true
-      pinia:
-        optional: true
 
   pinia@3.0.4:
     resolution: {integrity: sha512-l7pqLUFTI/+ESXn6k3nu30ZIzW5E2WZF/LaHJEpoq6ElcLD+wduZoB2kBN19du6K/4FDpPMazY2wJr+IndBtQw==}
@@ -4703,6 +4693,11 @@ snapshots:
       tslib: 2.7.0
     optional: true
 
+  '@erlihs/pinia-plugin-storage@1.1.3(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))':
+    dependencies:
+      pinia: 3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))
+      vue: 3.5.32(typescript@6.0.2)
+
   '@esbuild/aix-ppc64@0.27.2':
     optional: true
 
@@ -5600,8 +5595,6 @@ snapshots:
 
   define-lazy-prop@3.0.0: {}
 
-  defu@6.1.4: {}
-
   delayed-stream@1.0.0: {}
 
   detect-libc@1.0.3:
@@ -6142,12 +6135,6 @@ snapshots:
   picomatch@4.0.4: {}
 
   pidtree@0.6.0: {}
-
-  pinia-plugin-persistedstate@4.7.1(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))):
-    dependencies:
-      defu: 6.1.4
-    optionalDependencies:
-      pinia: 3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))
 
   pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)):
     dependencies:

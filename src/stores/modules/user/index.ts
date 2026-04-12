@@ -31,6 +31,6 @@ export const useUserStore = defineStore(
 		};
 	},
 	{
-		persist: true
+		storage: "localStorage"
 	}
 );

@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-25 11:43:53
- * @LastEditTime: 2025-01-16 11:55:33
+ * @LastEditTime: 2026-04-12 22:33:42
  * @LastEditors: mulingyuer
  * @Description: 数据仓库
  * @FilePath: \element-admin-template\src\stores\index.ts
@@ -9,12 +9,12 @@
  */
 import type { App } from "vue";
 import { createPinia } from "pinia";
-import { createPersistedState } from "pinia-plugin-persistedstate";
+import { createPiniaPluginStorage } from "@erlihs/pinia-plugin-storage";
 
 export const store = createPinia();
 store.use(
-	createPersistedState({
-		key: (id) => `${import.meta.env.VITE_APP_LOCAL_KEY_PREFIX}${id}`
+	createPiniaPluginStorage({
+		namespace: import.meta.env.VITE_APP_LOCAL_KEY_PREFIX
 	})
 );
 

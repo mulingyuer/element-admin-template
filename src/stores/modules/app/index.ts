@@ -111,8 +111,9 @@ export const useAppStore = defineStore(
 		};
 	},
 	{
-		persist: {
-			pick: ["language", "isCollapse"]
+		storage: {
+			adapter: "localStorage",
+			include: ["language", "isCollapse"]
 		}
 	}
 );
