@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-27 16:40:03
- * @LastEditTime: 2024-09-30 09:14:03
+ * @LastEditTime: 2026-04-12 17:38:52
  * @LastEditors: mulingyuer
  * @Description: 菜单
- * @FilePath: \spirit-app-microservice-admin\src\layout\admin-layout\components\Aside\Menu.vue
+ * @FilePath: \element-admin-template\src\layouts\components\admin\Aside\Menu.vue
  * 怎么可能会有bug！！！
 -->
 <template>

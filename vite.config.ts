@@ -47,16 +47,18 @@ export default defineConfig(({ mode }) => {
 			VueRouter({
 				routesFolder: "src/pages",
 				exclude: ["**/components/*.vue", "**/components/**/*.vue", "**/_*/**", "**/_*"],
-				dts: "types/typed-router.d.ts",
-				extendRoute: (route) => {
-					// 如果路由是透传路由，则设置 layout 为 false，阻止默认布局的添加
-					if (route.isPassThrough) {
-						route.meta = { ...route.meta, layout: false };
-					}
-				}
+				dts: "types/typed-router.d.ts"
+				// extendRoute: (route) => {
+				// 	// 如果路由是透传路由，则设置 layout 为 false，阻止默认布局的添加
+				// 	if (route.isPassThrough) {
+				// 		route.meta = { ...route.meta, layout: false };
+				// 	}
+				// }
 			}),
 			vue(),
-			Layouts(),
+			Layouts({
+				inheritDefaultLayout: false // 继承默认布局，默认为 true，如果为 false，则只有设置了 layout 的页面才会使用布局
+			}),
 			vueDevTools(),
 			// 打包移除log和debugger
 			removeConsole({

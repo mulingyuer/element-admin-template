@@ -1,18 +1,18 @@
 import { createRouter } from "vue-router";
 import { createRouterGuard } from "./router-guard";
 import type { App } from "vue";
-import { createRouterHistory } from "./helpers";
-import { routes } from "vue-router/auto-routes";
-import { setupLayouts } from "virtual:generated-layouts";
+import { createRouterHistory } from "./router-helpers";
+import { routes } from "./routes";
 
 const router = createRouter({
 	history: createRouterHistory(import.meta.env.BASE_URL),
-	routes: setupLayouts(routes),
+	routes,
 	scrollBehavior: () => ({ left: 0, top: 0 })
 });
 
 export async function setupRouter(app: App) {
 	app.use(router);
+
 	await createRouterGuard(router);
 	await router.isReady();
 }

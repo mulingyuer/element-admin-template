@@ -15,6 +15,7 @@ declare namespace AdminApp {
 		name: string;
 		title: string;
 		icon?: import("@/constant/icon-map").IconMapKeys;
+		sort?: number;
 		children?: Menu[];
 	}
 	/** navTab数据类型 */
