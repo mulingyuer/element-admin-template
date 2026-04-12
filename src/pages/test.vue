@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-12 15:29:15
- * @LastEditTime: 2026-04-12 16:57:39
+ * @LastEditTime: 2026-04-12 20:19:08
  * @LastEditors: mulingyuer
  * @Description: 测试页面
  * @FilePath: \element-admin-template\src\pages\test.vue
@@ -12,13 +12,15 @@
 </template>
 
 <script setup lang="ts">
+import RiFlaskLine from "~icons/ri/flask-line";
+
 definePage({
 	redirect: { path: "/404" },
 	meta: {
 		title: "测试页面",
 		layout: "admin",
 		auth: ["required"],
-		icon: "RiFlaskLine",
+		icon: shallowRef(RiFlaskLine),
 		sort: 30
 	}
 });

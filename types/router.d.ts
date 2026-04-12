@@ -1,14 +1,13 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 14:55:57
- * @LastEditTime: 2026-04-12 14:44:59
+ * @LastEditTime: 2026-04-12 20:17:04
  * @LastEditors: mulingyuer
  * @Description: 路由类型
  * @FilePath: \element-admin-template\types\router.d.ts
  * 怎么可能会有bug！！！
  */
 import type { AuthType } from "@/router/router-auth";
-import type { IconMapKeys } from "@/constant/icon-map";
 
 /** 布局名称，对应 src/layouts/ 下的 .vue 文件名 */
 type LayoutName = "admin" | "blank" | "default";
@@ -19,7 +18,7 @@ declare module "vue-router" {
 		/** 页面标题 */
 		title?: string;
 		/** 页面图标 */
-		icon?: IconMapKeys;
+		icon?: Component;
 		/** 是否隐藏菜单 */
 		isHide?: boolean;
 		/** 菜单排序 */

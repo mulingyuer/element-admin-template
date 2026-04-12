@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-11 17:02:02
- * @LastEditTime: 2026-04-11 17:07:06
+ * @LastEditTime: 2026-04-12 20:17:45
  * @LastEditors: mulingyuer
  * @Description: 仪表盘页面
  * @FilePath: \element-admin-template\src\pages\dashboard\index.vue
@@ -31,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import RiDashboard_3Line from "~icons/ri/dashboard-3-line";
+
 definePage({
 	name: "Dashboard",
 	alias: ["/"],
@@ -38,7 +40,7 @@ definePage({
 		layout: "admin",
 		auth: ["required"],
 		title: "仪表盘",
-		icon: "RiDashboard_3Line",
+		icon: shallowRef(RiDashboard_3Line),
 		affix: true,
 		sort: 10
 	}

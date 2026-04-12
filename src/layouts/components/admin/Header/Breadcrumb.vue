@@ -34,11 +34,11 @@ const breadcrumbList = computed(() => {
 
 /** 面包屑点击事件 */
 function onBreadcrumbClick(item: RouteLocationMatched) {
-	const { redirect, name } = item;
+	const { redirect, path } = item;
 	if (redirect) {
 		router.push(redirect as string);
 	} else {
-		router.push({ name });
+		router.push(path);
 	}
 }
 </script>

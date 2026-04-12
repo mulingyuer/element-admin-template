@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-12 14:28:37
- * @LastEditTime: 2026-04-12 15:49:06
+ * @LastEditTime: 2026-04-12 20:18:01
  * @LastEditors: mulingyuer
  * @Description: iframe页面
  * @FilePath: \element-admin-template\src\pages\iframe.vue
@@ -14,13 +14,15 @@
 </template>
 
 <script setup lang="ts">
+import RiWindowLine from "~icons/ri/window-line";
+
 definePage({
 	redirect: { path: "/404" },
 	meta: {
 		title: "iframe页面",
 		layout: "admin",
 		auth: ["required"],
-		icon: "RiWindowLine",
+		icon: shallowRef(RiWindowLine),
 		sort: 40
 	}
 });

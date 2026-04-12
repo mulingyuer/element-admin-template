@@ -1,10 +1,10 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2024-09-30 10:23:21
- * @LastEditTime: 2025-12-19 17:14:08
+ * @LastEditTime: 2026-04-12 20:21:29
  * @LastEditors: mulingyuer
  * @Description: 导航tab
- * @FilePath: \element-admin-template\src\layout\admin-layout\components\NavTab\index.vue
+ * @FilePath: \element-admin-template\src\layouts\components\admin\NavTab\index.vue
  * 怎么可能会有bug！！！
 -->
 <template>
@@ -19,7 +19,7 @@
 				<template #label>
 					<div class="nav-tab-label" @contextmenu.prevent="onNavTabContextmenu($event, item)">
 						<el-icon v-if="item.icon" class="nav-tab-icon">
-							<component :is="ICON_MAP[item.icon]" />
+							<component :is="item.icon" />
 						</el-icon>
 						<span class="nav-tab-title">{{ item.title }}</span>
 						<el-icon
@@ -51,7 +51,6 @@ import type { TabPaneName } from "element-plus";
 import { useAppStore, useNavTabStore } from "@/stores";
 import type { RouteRecordRaw } from "vue-router";
 import { updateNavTabToolsList } from "./helper";
-import { ICON_MAP } from "@/constant/icon-map";
 
 const route = useRoute();
 const router = useRouter();

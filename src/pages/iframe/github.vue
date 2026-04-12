@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-12 14:44:03
- * @LastEditTime: 2026-04-12 14:50:51
+ * @LastEditTime: 2026-04-12 20:20:42
  * @LastEditors: mulingyuer
  * @Description: github页面
  * @FilePath: \element-admin-template\src\pages\iframe\github.vue
@@ -13,10 +13,12 @@
 
 <script setup lang="ts">
 import IframePageContent from "@/components/IframePageContent.vue";
+import RiGithubLine from "~icons/ri/github-line";
+
 definePage({
 	meta: {
 		title: "github",
-		icon: "RiGithubLine"
+		icon: shallowRef(RiGithubLine)
 	}
 });
 

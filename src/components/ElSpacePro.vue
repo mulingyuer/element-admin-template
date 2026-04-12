@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2025-12-17 14:09:16
- * @LastEditTime: 2025-12-17 16:05:24
+ * @LastEditTime: 2026-04-12 20:25:10
  * @LastEditors: mulingyuer
  * @Description: 增强版ElSpace组件
  * @FilePath: \element-admin-template\src\components\ElSpacePro.vue
@@ -10,6 +10,7 @@
 <script lang="ts">
 import { ElSpace } from "element-plus";
 import { type SpaceProps, spaceProps } from "element-plus";
+import type { Component } from "vue";
 import { Comment, type VNode } from "vue";
 
 export type ElSpaceProProps = SpaceProps;
@@ -36,7 +37,7 @@ export default defineComponent({
 
 		return () =>
 			h(
-				ElSpace,
+				ElSpace as Component,
 				{
 					...props,
 					...attrs

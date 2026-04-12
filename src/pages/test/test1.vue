@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-12 11:23:36
- * @LastEditTime: 2026-04-12 16:57:43
+ * @LastEditTime: 2026-04-12 20:19:23
  * @LastEditors: mulingyuer
  * @Description: 测试页面
  * @FilePath: \element-admin-template\src\pages\test\test1.vue
@@ -12,11 +12,13 @@
 </template>
 
 <script setup lang="ts">
+import RiFlaskLine from "~icons/ri/flask-line";
+
 definePage({
 	name: "Test1",
 	meta: {
 		title: "测试页面1",
-		icon: "RiFlaskLine",
+		icon: shallowRef(RiFlaskLine),
 		sort: 1
 	}
 });

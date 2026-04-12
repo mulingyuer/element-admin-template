@@ -80,13 +80,13 @@ export default defineConfig(({ mode }) => {
 					}),
 					IconsResolver({
 						prefix: "i",
-						enabledCollections: ["ep", "ri", "custom-brand", "custom-ui"]
+						enabledCollections: ["ri", "custom-brand", "custom-ui"]
 					})
 				],
 				dts: "types/components.d.ts"
 			}),
 			Icons({
-				autoInstall: true,
+				autoInstall: false,
 				compiler: "vue3",
 				scale: 1,
 				defaultClass: "iconify",

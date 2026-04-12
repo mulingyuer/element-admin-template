@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@iconify/vue':
-        specifier: ^5.0.0
-        version: 5.0.0(vue@3.5.32(typescript@6.0.2))
       '@vueuse/core':
         specifier: ^14.1.0
         version: 14.1.0(vue@3.5.32(typescript@6.0.2))
@@ -45,9 +42,6 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
     devDependencies:
-      '@iconify-json/ep':
-        specifier: ^1.2.4
-        version: 1.2.4
       '@iconify-json/ri':
         specifier: ^1.2.10
         version: 1.2.10
@@ -1246,9 +1240,6 @@ packages:
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
 
-  '@iconify-json/ep@1.2.4':
-    resolution: {integrity: sha512-dtKOueYp1CRxAUW+GayIiuHqOlELfO0W3QiHOH4NjvKtBn2uxZbByIKQ+7B1Hj+AgZrhWTie3QKYkZn+VQVZrw==}
-
   '@iconify-json/ri@1.2.10':
     resolution: {integrity: sha512-WWMhoncVVM+Xmu9T5fgu2lhYRrKTEWhKk3Com0KiM111EeEsRLiASjpsFKnC/SrB6covhUp95r2mH8tGxhgd5Q==}
 
@@ -1257,11 +1248,6 @@ packages:
 
   '@iconify/utils@3.1.0':
     resolution: {integrity: sha512-Zlzem1ZXhI1iHeeERabLNzBHdOa4VhQbqAcOQaMKuTuyZCpwKbC2R4Dd0Zo3g9EAc+Y4fiarO8HIHRAth7+skw==}
-
-  '@iconify/vue@5.0.0':
-    resolution: {integrity: sha512-C+KuEWIF5nSBrobFJhT//JS87OZ++QDORB6f2q2Wm6fl2mueSTpFBeBsveK0KW9hWiZ4mNiPjsh6Zs4jjdROSg==}
-    peerDependencies:
-      vue: '>=3'
 
   '@jridgewell/gen-mapping@0.3.12':
     resolution: {integrity: sha512-OuLGC46TjB5BbN1dH8JULVVZY4WTdkF7tV9Ys6wLL1rubZnCMstOhNHueU5bLCrnRuDhKPDM4g6sw4Bel5Gzqg==}
@@ -4806,10 +4792,6 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@iconify-json/ep@1.2.4':
-    dependencies:
-      '@iconify/types': 2.0.0
-
   '@iconify-json/ri@1.2.10':
     dependencies:
       '@iconify/types': 2.0.0
@@ -4821,11 +4803,6 @@ snapshots:
       '@antfu/install-pkg': 1.1.0
       '@iconify/types': 2.0.0
       mlly: 1.8.0
-
-  '@iconify/vue@5.0.0(vue@3.5.32(typescript@6.0.2))':
-    dependencies:
-      '@iconify/types': 2.0.0
-      vue: 3.5.32(typescript@6.0.2)
 
   '@jridgewell/gen-mapping@0.3.12':
     dependencies:

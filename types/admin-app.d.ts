@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:02:33
- * @LastEditTime: 2025-12-17 14:07:19
+ * @LastEditTime: 2026-04-12 20:18:42
  * @LastEditors: mulingyuer
  * @Description: 应用全局类型定义
  * @FilePath: \element-admin-template\types\admin-app.d.ts
@@ -14,7 +14,7 @@ declare namespace AdminApp {
 		path: string;
 		name: string;
 		title: string;
-		icon?: import("@/constant/icon-map").IconMapKeys;
+		icon?: Component;
 		sort?: number;
 		children?: Menu[];
 	}
@@ -23,7 +23,7 @@ declare namespace AdminApp {
 		fullPath: string;
 		name?: string;
 		title?: string;
-		icon?: import("@/constant/icon-map").IconMapKeys;
+		icon?: Component;
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
 	}

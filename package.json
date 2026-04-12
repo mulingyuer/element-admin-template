@@ -16,7 +16,6 @@
 		"analyze": "vite build --mode analyze"
 	},
 	"dependencies": {
-		"@iconify/vue": "^5.0.0",
 		"@vueuse/core": "^14.1.0",
 		"axios": "^1.15.0",
 		"axios-retry": "^4.5.0",
@@ -30,7 +29,6 @@
 		"vue-router": "^5.0.4"
 	},
 	"devDependencies": {
-		"@iconify-json/ep": "^1.2.4",
 		"@iconify-json/ri": "^1.2.10",
 		"@tsconfig/node24": "^24.0.4",
 		"@types/node": "^24.12.2",
