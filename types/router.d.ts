@@ -10,6 +10,9 @@
 import type { AuthType } from "@/router/router-auth";
 import type { IconMapKeys } from "@/constant/icon-map";
 
+/** 布局名称，对应 src/layouts/ 下的 .vue 文件名 */
+type LayoutName = "admin" | "blank" | "default";
+
 declare module "vue-router" {
 	/** 路由配置项 */
 	interface RouteMeta {
@@ -28,7 +31,7 @@ declare module "vue-router" {
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
 		/** 布局，指定layout名称或者false不使用布局，默认布局：default */
-		layout?: string | false;
+		layout?: LayoutName | false;
 	}
 }
 

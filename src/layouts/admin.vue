@@ -28,6 +28,7 @@ import NavTab from "./components/admin/NavTab/index.vue";
 <style lang="scss" scoped>
 .admin-layout {
 	min-height: 100vh;
+	min-height: 100dvh;
 	background-color: var(--el-bg-color-page);
 }
 </style>
