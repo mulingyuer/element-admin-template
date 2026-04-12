@@ -7,7 +7,7 @@
  * @FilePath: \element-admin-template\src\utils\menus\custom-menus\index.ts
  * 怎么可能会有bug！！！
  */
-const globData: Record<string, any> = import.meta.glob("./!(index)*.ts", { eager: true });
+const globData: Record<string, any> = import.meta.glob(["./*.ts", "!./index.ts"], { eager: true });
 
 const customMenus: AdminApp.Menu[] = [];
 
