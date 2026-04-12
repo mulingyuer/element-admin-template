@@ -13,17 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # 确保有写权限
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: 克隆仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main # 指定主分支
 
       - name: 指定Node.js版本
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
 
       - name: 安装pnpm
         run: npm install pnpm -g
