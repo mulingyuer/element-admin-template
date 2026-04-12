@@ -1,5 +1,5 @@
 import { createRouter } from "vue-router";
-import { createRouterGuard } from "./guard";
+import { createRouterGuard } from "./router-guard";
 import type { App } from "vue";
 import { createRouterHistory } from "./helpers";
 import { routes } from "vue-router/auto-routes";

@@ -48,9 +48,38 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    'IframePage': RouteRecordInfo<
-      'IframePage',
+    '/iframe': RouteRecordInfo<
       '/iframe',
+      '/iframe',
+      Record<never, never>,
+      Record<never, never>,
+      | '/iframe/github'
+    >,
+    '/iframe/github': RouteRecordInfo<
+      '/iframe/github',
+      '/iframe/github',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test': RouteRecordInfo<
+      '/test',
+      '/test',
+      Record<never, never>,
+      Record<never, never>,
+      | 'Test1'
+      | 'Test2'
+    >,
+    'Test1': RouteRecordInfo<
+      'Test1',
+      '/test/test1',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'Test2': RouteRecordInfo<
+      'Test2',
+      '/test/test2',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -86,9 +115,36 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/iframe/index.vue': {
+    'src/pages/iframe.vue': {
       routes:
-        | 'IframePage'
+        | '/iframe'
+        | '/iframe/github'
+      views:
+        | 'default'
+    }
+    'src/pages/iframe/github.vue': {
+      routes:
+        | '/iframe/github'
+      views:
+        | never
+    }
+    'src/pages/test.vue': {
+      routes:
+        | '/test'
+        | 'Test1'
+        | 'Test2'
+      views:
+        | 'default'
+    }
+    'src/pages/test/test1.vue': {
+      routes:
+        | 'Test1'
+      views:
+        | never
+    }
+    'src/pages/test/test2.vue': {
+      routes:
+        | 'Test2'
       views:
         | never
     }

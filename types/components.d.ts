@@ -43,6 +43,7 @@ declare module 'vue' {
     'ICustomBrand158_调皮': typeof import('~icons/custom-brand/158_调皮')['default']
     ICustomUiAly: typeof import('~icons/custom-ui/aly')['default']
     ICustomUiEle: typeof import('~icons/custom-ui/ele')['default']
+    IframePageContent: typeof import('./../src/components/IframePageContent.vue')['default']
     IRiCloseLine: typeof import('~icons/ri/close-line')['default']
     IRiFullscreenExitLine: typeof import('~icons/ri/fullscreen-exit-line')['default']
     IRiFullscreenLine: typeof import('~icons/ri/fullscreen-line')['default']

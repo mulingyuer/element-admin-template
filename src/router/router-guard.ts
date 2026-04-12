@@ -1,10 +1,10 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:26:54
- * @LastEditTime: 2026-04-11 17:07:44
+ * @LastEditTime: 2026-04-12 11:31:45
  * @LastEditors: mulingyuer
  * @Description: 路由守卫
- * @FilePath: \element-admin-template\src\router\guard.ts
+ * @FilePath: \element-admin-template\src\router\router-guard.ts
  * 怎么可能会有bug！！！
  */
 // import { useAppStore } from "@/stores";

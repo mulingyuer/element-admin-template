@@ -1,7 +1,7 @@
 <!--
  * @Author: mulingyuer
  * @Date: 2026-04-11 16:56:24
- * @LastEditTime: 2026-04-11 16:58:36
+ * @LastEditTime: 2026-04-12 15:48:54
  * @LastEditors: mulingyuer
  * @Description: 404页面
  * @FilePath: \element-admin-template\src\pages\[...path].vue
@@ -21,6 +21,7 @@
 <script setup lang="ts">
 definePage({
 	name: "NotFound404",
+	alias: ["/404"],
 	meta: {
 		layout: "admin",
 		auth: ["required"],

@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 14:55:57
- * @LastEditTime: 2026-04-11 16:58:08
+ * @LastEditTime: 2026-04-12 14:44:59
  * @LastEditors: mulingyuer
  * @Description: 路由类型
  * @FilePath: \element-admin-template\types\router.d.ts
@@ -27,8 +27,6 @@ declare module "vue-router" {
 		auth?: AuthType[];
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
-		/** 外链地址 */
-		iframeLink?: string;
 		/** 布局，指定layout名称或者false不使用布局，默认布局：default */
 		layout?: string | false;
 	}
