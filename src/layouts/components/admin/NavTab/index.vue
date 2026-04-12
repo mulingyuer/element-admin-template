@@ -19,7 +19,7 @@
 				<template #label>
 					<div class="nav-tab-label" @contextmenu.prevent="onNavTabContextmenu($event, item)">
 						<el-icon v-if="item.icon" class="nav-tab-icon">
-							<component :is="item.icon" />
+							<component :is="getIconComponent(item.icon)" />
 						</el-icon>
 						<span class="nav-tab-title">{{ item.title }}</span>
 						<el-icon
@@ -51,6 +51,7 @@ import type { TabPaneName } from "element-plus";
 import { useAppStore, useNavTabStore } from "@/stores";
 import type { RouteRecordRaw } from "vue-router";
 import { updateNavTabToolsList } from "./helper";
+import { getIconComponent } from "@/utils/icon-registry";
 
 const route = useRoute();
 const router = useRouter();

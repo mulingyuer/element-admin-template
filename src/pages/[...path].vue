@@ -19,15 +19,13 @@
 </template>
 
 <script setup lang="ts">
-import RiCalendarCloseLine from "~icons/ri/calendar-close-line";
-
 definePage({
 	name: "NotFound404",
 	meta: {
 		layout: "admin",
 		auth: ["required"],
 		title: "404",
-		icon: shallowRef(RiCalendarCloseLine),
+		icon: "ri/calendar-close-line",
 		isHide: true
 	}
 });

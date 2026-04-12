@@ -13,12 +13,10 @@
 
 <script setup lang="ts">
 import IframePageContent from "@/components/IframePageContent.vue";
-import RiGithubLine from "~icons/ri/github-line";
-
 definePage({
 	meta: {
 		title: "github",
-		icon: shallowRef(RiGithubLine)
+		icon: "ri/github-line"
 	}
 });
 

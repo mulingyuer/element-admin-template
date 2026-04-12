@@ -7,15 +7,13 @@
  * @FilePath: \element-admin-template\src\utils\menus\custom-menus\outbound-link.ts
  * 怎么可能会有bug！！！
  */
-import RiGithubFill from "~icons/ri/github-fill";
-
 /** 外链菜单列表 */
 export const outboundLinkMenus: AdminApp.Menu[] = [
 	{
 		path: "https://github.com/mulingyuer/element-admin-template",
 		name: "OutboundLink",
 		title: "Github仓库",
-		icon: shallowRef(RiGithubFill),
+		icon: "ri/github-fill",
 		sort: 50
 	}
 ];

@@ -31,8 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import RiDashboard_3Line from "~icons/ri/dashboard-3-line";
-
 definePage({
 	name: "Dashboard",
 	alias: ["/"],
@@ -40,7 +38,7 @@ definePage({
 		layout: "admin",
 		auth: ["required"],
 		title: "仪表盘",
-		icon: shallowRef(RiDashboard_3Line),
+		icon: "ri/dashboard-3-line",
 		affix: true,
 		sort: 10
 	}

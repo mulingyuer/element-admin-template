@@ -12,13 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import RiFlaskLine from "~icons/ri/flask-line";
-
 definePage({
 	name: "Test1",
 	meta: {
 		title: "测试页面1",
-		icon: shallowRef(RiFlaskLine),
+		icon: "ri/flask-line",
 		sort: 1
 	}
 });

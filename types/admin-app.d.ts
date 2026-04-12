@@ -7,6 +7,7 @@
  * @FilePath: \element-admin-template\types\admin-app.d.ts
  * 怎么可能会有bug！！！
  */
+import type { IconKey } from "@/utils/icon-registry";
 
 declare namespace AdminApp {
 	/** 菜单数据类型 */
@@ -14,7 +15,7 @@ declare namespace AdminApp {
 		path: string;
 		name: string;
 		title: string;
-		icon?: Component;
+		icon?: IconKey;
 		sort?: number;
 		children?: Menu[];
 	}
@@ -23,7 +24,7 @@ declare namespace AdminApp {
 		fullPath: string;
 		name?: string;
 		title?: string;
-		icon?: Component;
+		icon?: IconKey;
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
 	}

@@ -8,6 +8,7 @@
  * 怎么可能会有bug！！！
  */
 import type { AuthType } from "@/router/router-auth";
+import type { IconKey } from "@/utils/icon-registry";
 
 /** 布局名称，对应 src/layouts/ 下的 .vue 文件名 */
 type LayoutName = "admin" | "blank" | "default";
@@ -18,7 +19,7 @@ declare module "vue-router" {
 		/** 页面标题 */
 		title?: string;
 		/** 页面图标 */
-		icon?: Component;
+		icon?: IconKey;
 		/** 是否隐藏菜单 */
 		isHide?: boolean;
 		/** 菜单排序 */

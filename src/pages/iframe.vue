@@ -14,15 +14,13 @@
 </template>
 
 <script setup lang="ts">
-import RiWindowLine from "~icons/ri/window-line";
-
 definePage({
 	redirect: { path: "/404" },
 	meta: {
 		title: "iframe页面",
 		layout: "admin",
 		auth: ["required"],
-		icon: shallowRef(RiWindowLine),
+		icon: "ri/window-line",
 		sort: 40
 	}
 });

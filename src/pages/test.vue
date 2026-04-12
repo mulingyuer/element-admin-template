@@ -12,15 +12,13 @@
 </template>
 
 <script setup lang="ts">
-import RiFlaskLine from "~icons/ri/flask-line";
-
 definePage({
 	redirect: { path: "/404" },
 	meta: {
 		title: "测试页面",
 		layout: "admin",
 		auth: ["required"],
-		icon: shallowRef(RiFlaskLine),
+		icon: "ri/flask-line",
 		sort: 30
 	}
 });

@@ -11,7 +11,7 @@
 	<el-sub-menu v-if="menu.children && menu.children.length > 0" :index="menu.path">
 		<template #title>
 			<el-icon v-if="menu.icon" size="19">
-				<component :is="menu.icon" />
+				<component :is="getIconComponent(menu.icon)" />
 			</el-icon>
 			<span class="truncate">{{ menu.title }}</span>
 		</template>
@@ -19,13 +19,15 @@
 	</el-sub-menu>
 	<el-menu-item v-else :index="menu.path">
 		<el-icon v-if="menu.icon" size="19">
-			<component :is="menu.icon" />
+			<component :is="getIconComponent(menu.icon)" />
 		</el-icon>
 		<span class="truncate">{{ menu.title }}</span>
 	</el-menu-item>
 </template>
 
 <script setup lang="ts">
+import { getIconComponent } from "@/utils/icon-registry";
+
 defineProps({
 	menu: {
 		type: Object as PropType<AdminApp.Menu>,
