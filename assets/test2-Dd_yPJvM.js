@@ -1,0 +1,1 @@
+import{A as e,Y as t,w as n}from"./vue-vendor-mfpwuQJm.js";var r=e({__name:`test2`,setup(e){return(e,r)=>(t(),n(`div`,null,`测试页面2`))}});export{r as default};

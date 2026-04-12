@@ -1,0 +1,1 @@
+import{n as e,o as t}from"./stores-BJuN95_g.js";function n(){let n=t(),r=e();async function i(e){r.clearNavTabList(),n.setToken(e)}async function a(){n.clearToken(),setTimeout(()=>{r.clearNavTabList()})}return{login:i,logout:a}}export{n as t};

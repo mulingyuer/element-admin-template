@@ -1,0 +1,1 @@
+import{$ as e,Y as t,k as n,w as r}from"./vue-vendor-mfpwuQJm.js";import{t as i}from"./_plugin-vue_export-helper-1r9tKl2A.js";var a={},o={class:`blank-layout`};function s(i,a){let s=e(`router-view`);return t(),r(`div`,o,[n(s)])}var c=i(a,[[`render`,s],[`__scopeId`,`data-v-f1a10573`]]);export{c as default};

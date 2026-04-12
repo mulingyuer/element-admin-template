@@ -1,0 +1,1 @@
+import{$ as e,A as t,S as n,Y as r}from"./vue-vendor-mfpwuQJm.js";var i=t({__name:`test`,setup(t){return(t,i)=>{let a=e(`router-view`);return r(),n(a)}}});export{i as default};

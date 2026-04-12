@@ -1,68 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN" class="layout-menu-light">
+	<head>
+		<script type="module" crossorigin src="/element-admin-template/assets/polyfills-xWIMnunD.js"></script>
 
-<head>
-  <script type="module" crossorigin src="/element-admin-template/assets/polyfills-BJZ8xT_p.js"></script>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="/element-admin-template/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>管理后台</title>
+		<script type="module" crossorigin src="/element-admin-template/assets/index-Dz4HFJ9e.js"></script>
+		<link rel="modulepreload" crossorigin href="/element-admin-template/assets/vue-vendor-mfpwuQJm.js">
+		<link rel="modulepreload" crossorigin href="/element-admin-template/assets/rolldown-runtime-DF2fYuay.js">
+		<link rel="modulepreload" crossorigin href="/element-admin-template/assets/ui-BxdLZY_8.js">
+		<link rel="modulepreload" crossorigin href="/element-admin-template/assets/utils-DebkENCV.js">
+		<link rel="modulepreload" crossorigin href="/element-admin-template/assets/stores-BJuN95_g.js">
+		<link rel="stylesheet" crossorigin href="/element-admin-template/assets/ui-Bb6l9jRA.css">
+		<link rel="stylesheet" crossorigin href="/element-admin-template/assets/index-IsCzGmXW.css">
+	</head>
 
-  <meta charset="UTF-8">
-  <link rel="icon" href="/element-admin-template/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>管理后台</title>
-  <script type="module" crossorigin src="/element-admin-template/assets/index-xfxFzTfl.js"></script>
-  <link rel="modulepreload" crossorigin href="/element-admin-template/assets/vue-vendor-CppwoQJl.js">
-  <link rel="modulepreload" crossorigin href="/element-admin-template/assets/utils-EwHe65bo.js">
-  <link rel="modulepreload" crossorigin href="/element-admin-template/assets/ui-C6jlOSct.js">
-  <link rel="stylesheet" crossorigin href="/element-admin-template/assets/index-Crzmiofd.css">
-</head>
+	<body>
+		<div id="app">
+			<style>
+				html,
+				body,
+				#app {
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					height: 100%;
+					overflow: hidden;
+				}
 
-<body>
-  <div id="app">
-    <style>
-      html,
-      body,
-      #app {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
+				.index-loader {
+					height: 4px;
+					width: 130px;
+					--c: no-repeat linear-gradient(#409eff 0, #409eff 0);
+					background: no-repeat linear-gradient(#409eff 0, #409eff 0), no-repeat linear-gradient(#409eff 0, #409eff 0), #c6e2ff;
+					background: no-repeat linear-gradient(#409eff 0 0), no-repeat linear-gradient(#409eff 0 0), #c6e2ff;
+					background: var(--c), var(--c), #c6e2ff;
+					background-size: 60% 100%;
+					animation: l16 3s infinite;
+				}
 
-      .index-loader {
-        height: 4px;
-        width: 130px;
-        --c: no-repeat linear-gradient(#409EFF 0, #409EFF 0);
-        background: no-repeat linear-gradient(#409EFF 0, #409EFF 0), no-repeat linear-gradient(#409EFF 0, #409EFF 0), #c6e2ff;
-        background: no-repeat linear-gradient(#409EFF 0 0), no-repeat linear-gradient(#409EFF 0 0), #c6e2ff;
-        background: var(--c), var(--c), #c6e2ff;
-        background-size: 60% 100%;
-        animation: l16 3s infinite;
-      }
-
-      @supports (background: linear-gradient(red 0%, red 0% 1%, red 2%)) {
+				@supports (background: linear-gradient(red 0%, red 0% 1%, red 2%)) {
 .index-loader {
-        --c: no-repeat linear-gradient(#409EFF 0 0);
-      }
+					--c: no-repeat linear-gradient(#409eff 0 0);
+				}
 }
 
-      @keyframes l16 {
-        0% {
-          background-position: -150% 0, -150% 0
-        }
+				@keyframes l16 {
+					0% {
+						background-position:
+							-150% 0,
+							-150% 0;
+					}
 
-        66% {
-          background-position: 250% 0, -150% 0
-        }
+					66% {
+						background-position:
+							250% 0,
+							-150% 0;
+					}
 
-        100% {
-          background-position: 250% 0, 250% 0
-        }
-      }
-    </style>
-    <div class="index-loader"></div>
-  </div>
-</body>
-
+					100% {
+						background-position:
+							250% 0,
+							250% 0;
+					}
+				}
+			</style>
+			<div class="index-loader"></div>
+		</div>
+	</body>
 </html>

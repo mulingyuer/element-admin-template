@@ -1,0 +1,1 @@
+import{$ as e,A as t,Y as n,k as r,w as i}from"./vue-vendor-mfpwuQJm.js";import{t as a}from"./_plugin-vue_export-helper-1r9tKl2A.js";var o={class:`iframe-page`},s=a(t({__name:`iframe`,setup(t){return(t,a)=>{let s=e(`router-view`);return n(),i(`div`,o,[r(s)])}}}),[[`__scopeId`,`data-v-60715d9b`]]);export{s as default};
