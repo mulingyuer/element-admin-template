@@ -107,12 +107,16 @@ function onNavTabContextmenu(event: MouseEvent, item: AdminApp.NavTabData) {
 /** 从路由记录中筛选出affix路由 */
 function getAffixRoutes(routes: RouteRecordRaw[]) {
 	const list: AdminApp.NavTabData[] = [];
+	const seen = new Set<string>();
 
 	routes.forEach((route) => {
 		if (route.meta?.affix) {
+			const name = route?.name as string;
+			if (name && seen.has(name)) return;
+			if (name) seen.add(name);
 			list.push({
 				fullPath: route.path,
-				name: route?.name as string,
+				name,
 				title: route.meta?.title,
 				icon: route.meta?.icon,
 				affix: route.meta?.affix
