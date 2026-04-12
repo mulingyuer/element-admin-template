@@ -1,38 +1,20 @@
 /*
  * @Author: mulingyuer
- * @Date: 2024-09-27 17:32:12
- * @LastEditTime: 2025-12-17 16:12:54
+ * @Date: 2026-04-12 17:06:52
+ * @LastEditTime: 2026-04-12 17:37:37
  * @LastEditors: mulingyuer
- * @Description: routes
+ * @Description: 路由配置
  * @FilePath: \element-admin-template\src\router\routes.ts
  * 怎么可能会有bug！！！
  */
-import type { RouteRecordRaw } from "vue-router";
-import AdminLayout from "@/layout/admin-layout/index.vue";
+import { routes as autoRouts } from "vue-router/auto-routes";
+import { setupLayouts } from "virtual:generated-layouts";
 
-/** 根路由 */
-export const rootRoute: RouteRecordRaw = {
-	path: "/",
-	name: "Root",
-	component: AdminLayout,
-	redirect: { path: "/dashboard" }, // HACK: 一定要用path重定向，name会导致守卫不触发
-	children: []
-};
+// 数组扩展，之后可能会有特殊路由来源，可以添加到这里
+let routes = [...autoRouts];
 
-/** 不存在的路由 */
-export const notFoundRoute: RouteRecordRaw = {
-	path: "/:pathMatch(.*)*",
-	name: "NotFound",
-	component: AdminLayout,
-	children: [
-		{
-			path: "404",
-			name: "NotFound404",
-			component: () => import("@/views/error/404.vue"),
-			meta: {
-				title: "404",
-				icon: "RiCalendarCloseLine"
-			}
-		}
-	]
-};
+// 处理布局
+routes = setupLayouts(routes);
+
+export { routes };
+export default routes;

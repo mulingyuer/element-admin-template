@@ -106,6 +106,6 @@ export const useNavTabStore = defineStore(
 		};
 	},
 	{
-		persist: true
+		storage: "localStorage"
 	}
 );

@@ -14,6 +14,9 @@ import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import { optimize } from "svgo";
+import VueRouter from "vue-router/vite";
+import { VueRouterAutoImports } from "vue-router/unplugin";
+import Layouts from "vite-plugin-vue-layouts-next";
 
 // 净化svg
 const sanitizeSvg = (svg: string) => {
@@ -41,25 +44,34 @@ export default defineConfig(({ mode }) => {
 		/** 路由的 baseURL，控制 BASE_URL 环境变量 */
 		base: viteEnv.VITE_APP_BASE_URL,
 		plugins: [
+			VueRouter({
+				routesFolder: "src/pages",
+				exclude: ["**/components/*.vue", "**/components/**/*.vue", "**/_*/**", "**/_*"],
+				dts: "types/typed-router.d.ts"
+				// extendRoute: (route) => {
+				// 	// 如果路由是透传路由，则设置 layout 为 false，阻止默认布局的添加
+				// 	if (route.isPassThrough) {
+				// 		route.meta = { ...route.meta, layout: false };
+				// 	}
+				// }
+			}),
 			vue(),
+			Layouts({
+				inheritDefaultLayout: false // 继承默认布局，默认为 true，如果为 false，则只有设置了 layout 的页面才会使用布局
+			}),
 			vueDevTools(),
 			// 打包移除log和debugger
 			removeConsole({
 				custom: ["debugger", "console.log()"]
 			}),
 			AutoImport({
-				imports: ["vue", "vue-router", "pinia", "@vueuse/core"],
+				imports: ["vue", VueRouterAutoImports, "pinia", "@vueuse/core"],
 				resolvers: [
 					ElementPlusResolver({
 						importStyle: "sass"
 					})
 				],
-				dts: "types/auto-imports.d.ts",
-				eslintrc: {
-					enabled: true,
-					filepath: "./.eslintrc-auto-import.json",
-					globalsPropValue: true
-				}
+				dts: "types/auto-imports.d.ts"
 			}),
 			Components({
 				resolvers: [
@@ -68,13 +80,13 @@ export default defineConfig(({ mode }) => {
 					}),
 					IconsResolver({
 						prefix: "i",
-						enabledCollections: ["ep", "ri", "custom-brand", "custom-ui"]
+						enabledCollections: ["ri", "custom-brand", "custom-ui"]
 					})
 				],
 				dts: "types/components.d.ts"
 			}),
 			Icons({
-				autoInstall: true,
+				autoInstall: false,
 				compiler: "vue3",
 				scale: 1,
 				defaultClass: "iconify",
@@ -120,10 +132,21 @@ export default defineConfig(({ mode }) => {
 			// target: ["es2015"],
 			rollupOptions: {
 				output: {
-					manualChunks: {
-						"vue-vendor": ["vue", "vue-router", "pinia", "pinia-plugin-persistedstate"],
-						ui: ["element-plus", "nprogress"],
-						utils: ["@vueuse/core", "axios", "axios-retry", "dayjs"]
+					codeSplitting: {
+						groups: [
+							{
+								name: "vue-vendor",
+								test: /[\\/]node_modules[\\/](vue|vue-router|pinia|pinia-plugin-persistedstate)[\\/]/
+							},
+							{
+								name: "ui",
+								test: /[\\/]node_modules[\\/](element-plus|nprogress)[\\/]/
+							},
+							{
+								name: "utils",
+								test: /[\\/]node_modules[\\/](\@vueuse\/core|axios|axios-retry|dayjs)[\\/]/
+							}
+						]
 					}
 				}
 			}

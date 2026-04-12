@@ -35,6 +35,7 @@ declare global {
   const debouncedWatch: typeof import('@vueuse/core').debouncedWatch
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
+  const definePage: typeof import('vue-router/experimental').definePage
   const defineStore: typeof import('pinia').defineStore
   const eagerComputed: typeof import('@vueuse/core').eagerComputed
   const effectScope: typeof import('vue').effectScope
@@ -101,7 +102,7 @@ declare global {
   const refWithControl: typeof import('@vueuse/core').refWithControl
   const resolveComponent: typeof import('vue').resolveComponent
   const resolveRef: typeof import('@vueuse/core').resolveRef
-  const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
+  const resolveUnref: (typeof import("@vueuse/core"))["resolveUnref"]
   const setActivePinia: typeof import('pinia').setActivePinia
   const setMapStoreSuffix: typeof import('pinia').setMapStoreSuffix
   const shallowReactive: typeof import('vue').shallowReactive
@@ -204,7 +205,7 @@ declare global {
   const useIntervalFn: typeof import('@vueuse/core').useIntervalFn
   const useKeyModifier: typeof import('@vueuse/core').useKeyModifier
   const useLastChanged: typeof import('@vueuse/core').useLastChanged
-  const useLink: typeof import('vue-router').useLink
+  const useLink: typeof import("vue-router").useLink
   const useLocalStorage: typeof import('@vueuse/core').useLocalStorage
   const useMagicKeys: typeof import('@vueuse/core').useMagicKeys
   const useManualRefHistory: typeof import('@vueuse/core').useManualRefHistory

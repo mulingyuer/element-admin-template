@@ -1,25 +1,26 @@
 /*
  * @Author: mulingyuer
- * @Date: 2024-09-27 08:55:34
- * @LastEditTime: 2024-09-27 08:56:44
+ * @Date: 2026-04-11 16:46:54
+ * @LastEditTime: 2026-04-11 16:47:56
  * @LastEditors: mulingyuer
  * @Description: 必须登录的策略
- * @FilePath: \spirit-app-microservice-admin\src\router\router-auth\strategy\required-strategy.ts
+ * @FilePath: \element-admin-template\src\router\router-auth\strategy\required-strategy.ts
  * 怎么可能会有bug！！！
  */
 import { RouterAuthContext } from "../context";
 import type { AuthStrategy } from "../types";
+import type { RouteLocationRaw } from "vue-router";
 
 export class RequiredStrategy implements AuthStrategy {
-	execute(context: RouterAuthContext): void {
-		const { isLogin, to, next } = context;
+	execute(context: RouterAuthContext): boolean | RouteLocationRaw {
+		const { isLogin, to } = context;
 
 		if (!isLogin) {
-			// 未登录，跳转到登录页面
-			next({ name: "Login", query: { redirect: to.fullPath } });
-		} else {
-			// 已登录，正常访问
-			next();
+			// 未登录，返回登录页面路由
+			return { name: "Login", query: { redirect: to.fullPath } };
 		}
+
+		// 已登录，允许继续
+		return true;
 	}
 }

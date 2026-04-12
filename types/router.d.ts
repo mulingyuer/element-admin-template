@@ -1,14 +1,17 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-26 14:55:57
- * @LastEditTime: 2025-12-17 14:16:29
+ * @LastEditTime: 2026-04-12 20:17:04
  * @LastEditors: mulingyuer
  * @Description: 路由类型
  * @FilePath: \element-admin-template\types\router.d.ts
  * 怎么可能会有bug！！！
  */
 import type { AuthType } from "@/router/router-auth";
-import type { IconMapKeys } from "@/constant/icon-map";
+import type { IconKey } from "@/utils/icon-registry";
+
+/** 布局名称，对应 src/layouts/ 下的 .vue 文件名 */
+type LayoutName = "admin" | "blank" | "default";
 
 declare module "vue-router" {
 	/** 路由配置项 */
@@ -16,7 +19,7 @@ declare module "vue-router" {
 		/** 页面标题 */
 		title?: string;
 		/** 页面图标 */
-		icon?: IconMapKeys;
+		icon?: IconKey;
 		/** 是否隐藏菜单 */
 		isHide?: boolean;
 		/** 菜单排序 */
@@ -24,11 +27,11 @@ declare module "vue-router" {
 		/** 是否开启keepAlive */
 		keepAlive?: boolean;
 		/** 是否是访客页面 */
-		auth?: AuthType;
+		auth?: AuthType[];
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
-		/** 外链地址 */
-		iframeLink?: string;
+		/** 布局，指定layout名称或者false不使用布局，默认布局：default */
+		layout?: LayoutName | false;
 	}
 }
 

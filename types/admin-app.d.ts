@@ -1,20 +1,22 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:02:33
- * @LastEditTime: 2025-12-17 14:07:19
+ * @LastEditTime: 2026-04-12 22:16:21
  * @LastEditors: mulingyuer
  * @Description: 应用全局类型定义
  * @FilePath: \element-admin-template\types\admin-app.d.ts
  * 怎么可能会有bug！！！
  */
-
 declare namespace AdminApp {
+	type IconKey = import("@/utils/icon-registry").IconKey;
+
 	/** 菜单数据类型 */
 	interface Menu {
 		path: string;
 		name: string;
 		title: string;
-		icon?: import("@/constant/icon-map").IconMapKeys;
+		icon?: IconKey;
+		sort?: number;
 		children?: Menu[];
 	}
 	/** navTab数据类型 */
@@ -22,7 +24,7 @@ declare namespace AdminApp {
 		fullPath: string;
 		name?: string;
 		title?: string;
-		icon?: import("@/constant/icon-map").IconMapKeys;
+		icon?: IconKey;
 		/** 是否固定（不允许关闭） */
 		affix?: boolean;
 	}

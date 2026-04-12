@@ -1,17 +1,18 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 08:48:27
- * @LastEditTime: 2024-09-27 08:51:03
+ * @LastEditTime: 2026-04-11 16:48:28
  * @LastEditors: mulingyuer
  * @Description: 路由鉴权类型
- * @FilePath: \spirit-app-microservice-admin\src\router\router-auth\types.ts
+ * @FilePath: \element-admin-template\src\router\router-auth\types.ts
  * 怎么可能会有bug！！！
  */
+import type { RouteLocationRaw } from "vue-router";
 import { RouterAuthContext } from "./context";
 
 /** 策略模式接口 */
 export interface AuthStrategy {
-	execute(context: RouterAuthContext): void;
+	execute(context: RouterAuthContext): boolean | RouteLocationRaw;
 }
 
 /** 鉴权类型 */

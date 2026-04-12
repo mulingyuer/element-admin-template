@@ -45,17 +45,17 @@ AI 生成的文档：[《element-admin-template》](https://zread.ai/mulingyuer/
 
 ## 🛠️ 技术栈
 
-| 核心库 | 说明 |
-| :--- | :--- |
-| **Vue 3** | 响应式框架，使用 Composition API |
-| **Vite** | 打包工具 / 开发服务器 |
-| **TypeScript** | 类型定义 |
-| **Element Plus** | UI 组件库 |
-| **Vue Router** | 路由管理 |
-| **Pinia** | 状态管理 |
-| **VueUse** | 组合式工具集 |
-| **Axios** | 网络请求库 |
-| **Sass** | CSS 预处理器 |
+| 核心库           | 说明                             |
+| :--------------- | :------------------------------- |
+| **Vue 3**        | 响应式框架，使用 Composition API |
+| **Vite**         | 打包工具 / 开发服务器            |
+| **TypeScript**   | 类型定义                         |
+| **Element Plus** | UI 组件库                        |
+| **Vue Router**   | 路由管理                         |
+| **Pinia**        | 状态管理                         |
+| **VueUse**       | 组合式工具集                     |
+| **Axios**        | 网络请求库                       |
+| **Sass**         | CSS 预处理器                     |
 
 ---
 
@@ -83,22 +83,26 @@ src/
 ## 🚀 快速开始
 
 ### 1. 克隆项目
+
 ```bash
 git clone https://github.com/mulingyuer/element-admin-template.git
 cd element-admin-template
 ```
 
 ### 2. 安装依赖
+
 ```bash
 pnpm install
 ```
 
 ### 3. 本地开发
+
 ```bash
 pnpm dev
 ```
 
 ### 4. 项目打包
+
 ```bash
 pnpm build
 ```
@@ -108,10 +112,12 @@ pnpm build
 ## 🌍 环境变量
 
 项目支持多套环境配置：
+
 - `.env.development`: 开发环境
 - `.env.production`: 生产环境
 
 常见变量说明：
+
 - `VITE_APP_TITLE`: 网页标题。
 - `VITE_APP_BASE_URL`: 应用部署时的基础路径（控制 `BASE_URL`）。
 
@@ -136,6 +142,7 @@ pnpm build
 ### 自定义图标
 
 将 SVG 文件放入 `src/assets/icons/brand` 或 `src/assets/icons/ui` 目录，即可自动加载：
+
 ```html
 <i-custom-brand-your-icon-name />
 ```
@@ -144,6 +151,7 @@ pnpm build
 2. ui 中存放单色图标
 
 ### 函数式调用
+
 如果需要在 JS 中使用图标（如作为组件 Props 传入），可以使用 `useIcon` composable。
 
 ---

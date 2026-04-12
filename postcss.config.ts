@@ -1,7 +1,7 @@
 /*
  * @Author: mulingyuer
  * @Date: 2025-07-04 11:05:41
- * @LastEditTime: 2025-07-04 16:00:40
+ * @LastEditTime: 2026-04-11 16:27:15
  * @LastEditors: mulingyuer
  * @Description: postcss配置文件
  * @FilePath: \element-admin-template\postcss.config.ts
@@ -15,6 +15,9 @@ export default {
 			// 自动添加前缀
 			autoprefixer: {
 				grid: true
+			},
+			features: {
+				"cascade-layers": false
 			}
 		})
 	]

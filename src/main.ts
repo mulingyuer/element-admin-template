@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { piniaStore } from "@/stores";
 import App from "./App.vue";
 import { setupRouter } from "./router";
+import { initMenus } from "@/utils/menus";
 
 // style
 import "@/styles/index.scss";
@@ -15,6 +16,9 @@ async function setupApp() {
 	app.use(ElementPlusPlugin);
 	app.use(piniaStore);
 	await setupRouter(app);
+
+	// 初始化菜单
+	initMenus();
 
 	app.mount("#app");
 }
