@@ -1,15 +1,15 @@
 /*
  * @Author: mulingyuer
  * @Date: 2024-09-27 17:02:33
- * @LastEditTime: 2026-04-12 20:18:42
+ * @LastEditTime: 2026-04-12 22:16:21
  * @LastEditors: mulingyuer
  * @Description: 应用全局类型定义
  * @FilePath: \element-admin-template\types\admin-app.d.ts
  * 怎么可能会有bug！！！
  */
-import type { IconKey } from "@/utils/icon-registry";
-
 declare namespace AdminApp {
+	type IconKey = import("@/utils/icon-registry").IconKey;
+
 	/** 菜单数据类型 */
 	interface Menu {
 		path: string;
